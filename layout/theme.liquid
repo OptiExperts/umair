@@ -363,8 +363,8 @@ and settings.sidebar-link-list-3 == blank
 
   <!-- Scripts -->
   <script 
-            
-          src="{{ 'pacific.js' | asset_url }}"
+          type="lazyload2"  
+          data-src="{{ 'pacific.js' | asset_url }}"
           data-scripts
           data-shopify-api-url="{{ 'api.jquery.js' | shopify_asset_url }}"
           data-shopify-countries="/services/javascripts/countries.js"

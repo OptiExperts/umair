@@ -12,13 +12,15 @@ Whether to use image zoom
 Class(es) to add to gallery element
 {% endcomment %}
 
+
+
 <div class="
     product-gallery
     clearfix
     {{ class }}
   " data-product-gallery {% if enable_image_zoom %}data-product-gallery-image-zoom{% endif %}>
   <div class="
-      product-gallery--viewport
+      product-gallery--viewport 
       {% if product.media.size > 1 %}product-gallery--viewport--has-navigation{% endif %}
     " data-product-gallery-viewport>
     {% assign models = product.media | where: 'media_type', 'model' %}
@@ -83,13 +85,47 @@ Class(es) to add to gallery element
   </div>
 
   {% if product.media.size > 1 %}
-  <div class="product-gallery--navigation" data-product-gallery-navigation>
+  <div class="product-gallery--navigation mobile_product_images" data-product-gallery-navigation>
     {% for media in product.media %}
     <div>
       <button class="
             product-gallery--media-thumbnail
             product-gallery--{{ media.media_type }}-thumbnail
           " type="button" tab-index="0"
+        aria-label="{{ media.alt }} {{ 'general.accessibility.nav_product_thumbnail' | t }}"
+        data-product-gallery-thumbnail="{{ forloop.index0 }}"
+        data-product-gallery-selected="{%- if selected_media.id == media.id -%}true{%- else -%}false{%- endif -%}"
+        data-media="{{ media.id }}" data-media-type="{{ media.media_type }}">
+        {%
+        render 'rimg'
+        img: media.preview_image,
+        size: '100x100',
+        lazy: true
+        %}
+           {% if enable_image_zoom %}<div class="product-gallery--image-zoom-container"></div>{% endif %}
+        {% case media.media_type %}
+        {% when 'model' %}
+        {% render 'icon' with 'model-thumb' %}
+        {% when 'video' %}
+        {% render 'icon' with 'play-thumb' %}
+        {% when 'external_video' %}
+        {% render 'icon' with 'play-thumb' %}
+        {% endcase %}
+      </button>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+  
+  
+  
+  
+  
+  {% if product.media.size > 1 %}
+  <div class="outer-grid desktop_product_images" data-product-gallery-navigation>
+    {% for media in product.media %}
+   
+      <div class="inner-grid" type="button" tab-index="0"
         aria-label="{{ media.alt }} {{ 'general.accessibility.nav_product_thumbnail' | t }}"
         data-product-gallery-thumbnail="{{ forloop.index0 }}"
         data-product-gallery-selected="{%- if selected_media.id == media.id -%}true{%- else -%}false{%- endif -%}"
@@ -109,11 +145,12 @@ Class(es) to add to gallery element
         {% when 'external_video' %}
         {% render 'icon' with 'play-thumb' %}
         {% endcase %}
-      </button>
-    </div>
+      </div>
+  
     {% endfor %}
   </div>
   {% endif %}
+  
 </div>
 
 
@@ -131,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   });
 })
   
-</script>
+</script> 
 
 <style>
   /* .product-gallery--navigation {
@@ -156,4 +193,60 @@ document.addEventListener("DOMContentLoaded", function(event) {
     border: transparent;
     background-color: transparent;
   }
+  
+  
+  
+  .outer-grid {
+   display: flex;
+   flex-wrap: wrap;
+/*    padding: 0 4px; */
+}
+.inner-grid {
+   flex: 50%;
+    max-width: 50%;
+/*    padding: 0 4px; */
+  margin-bottom: -17px;
+}
+.inner-grid img {
+   margin-top: 8px;
+   width: 100%;
+   padding: 10px;
+}
+  
+  
+
+
+ 
+
+   @media only screen and (max-width: 768px) {
+     .desktop_product_images{
+          display:none;
+     }
+     
+   }
+
+  @media only screen and (min-width: 769px){
+     .product-gallery--viewport--has-navigation,.product-gallery--navigation{
+       display:none;
+     }
+  
+    .product {
+      display: flex !important;
+      /* grid-template-columns: repeat(2,1fr); */
+      grid-gap: var(--space-xx-large) var(--gutter-xl);
+        justify-items: center;
+        margin-top: 20px;
+        }
+    .product__grid-right {
+      grid-column: 2;
+      width: 60%;
+    }
+    .inner-grid img {
+    margin-top: 8px;
+    width: 100%;
+    padding: 5px;
+}
+    
+  }
+
 </style>

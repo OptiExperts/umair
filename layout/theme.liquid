@@ -197,8 +197,6 @@
   {{ 'theme.css' | asset_url | stylesheet_tag }}
   {% endif %}
 
-  <!-- Theme object -->
-  {% comment %}Inject theme-object begin{% endcomment %}
 <script type="lazyload2" data-src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="lazyload2" data-src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 <script>
@@ -245,13 +243,15 @@
     }
   };
 </script>
-  {% comment %}Inject theme-object end{% endcomment %}
-
-
 
   <link rel="stylesheet"  data-href="{{ 'my-cart.css' | asset_url }}">
   <script type="lazyload2" data-src="{{ 'my-cart.js' | asset_url }}"></script>
-  {% capture boostersnippet %}{% include "booster-apps-common" %}{% endcapture %}{% unless boostersnippet contains "Liquid error" %}{{ boostersnippet }}{% endunless %}
+  {% capture boostersnippet %}
+  {% include "booster-apps-common" %}
+  {% endcapture %}
+  {% unless boostersnippet contains "Liquid error" %}
+  {{ boostersnippet }}
+  {% endunless %}
 
   {% render 'gsf-conversion-pixels' %}
 
@@ -267,14 +267,9 @@
 
   </style>
 
-  <!--begin-boost-pfs-filter-css-->
   {% render 'boost-pfs-style' %}
-  <!--end-boost-pfs-filter-css-->
-
 
   </head>
-
-
 {% assign sidebar = false %}
 {% if settings.enable-sidebar == 'all' %}
 {% if template contains 'index' %}
@@ -307,7 +302,6 @@ and settings.sidebar-link-list-3 == blank
     if(('ontouchstart' in window)||window.DocumentTouch&&document instanceof DocumentTouch)document.documentElement.className=document.documentElement.className.replace(/\bno-touch\b/,'has-touch');
   </script>
 
-  {% comment %}Inject icon-star-symbol begin{% endcomment %}
   <svg
         class="icon-star-reference"
         aria-hidden="true"
@@ -323,8 +317,6 @@ and settings.sidebar-link-list-3 == blank
       <path d="M10 3L12.163 7.60778L17 8.35121L13.5 11.9359L14.326 17L10 14.6078L5.674 17L6.5 11.9359L3 8.35121L7.837 7.60778L10 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </clipPath>
   </svg>
-  {% comment %}{% section 'drawer' %}{% endcomment %}
-
 
   {% section 'pxs-announcement-bar' %}
   {% section 'header' %}
@@ -397,22 +389,14 @@ and settings.sidebar-link-list-3 == blank
     })();
   </script> 
 
-
-
   <script data-ajax-cart-initial-state>
   {{ cart | json }}
   </script>
 
-  
 <script type="module">
   import '{{ "liquid-ajax-cart-v1.10.0.js" | asset_url }}';
 </script>
 
-
-
-
-
-  <!-- Back In Stock Flow Snippet start-->
   <script type="lazyload2" data-src="https://a.klaviyo.com/media/js/onsite/onsite.js"></script>
   <script   type="lazyload2">
     var klaviyo = klaviyo || [];
@@ -450,9 +434,6 @@ and settings.sidebar-link-list-3 == blank
     });
   </script>
 
-  <!-- Back In Stock Flow Snippet End-->
-
-  <!-- Affirm -->
   <script type="lazyload2">
     _affirm_config = {
       public_api_key:  "YTOO8KS01QYWVN9M",
@@ -461,7 +442,7 @@ and settings.sidebar-link-list-3 == blank
     (function(l,g,m,e,a,f,b){var d,c=l[m]||{},h=document.createElement(f),n=document.getElementsByTagName(f)[0],k=function(a,b,c){return function(){a[b]._.push([c,arguments])}};c[e]=k(c,e,"set");d=c[e];c[a]={};c[a]._=[];d._=[];c[a][b]=k(c,a,b);a=0;for(b="set add save post open empty reset on off trigger ready setProduct".split(" ");a<b.length;a++)d[b[a]]=k(c,e,b[a]);a=0;for(b=["get","token","url","items"];a<b.length;a++)d[b[a]]=function(){};h.async=!0;h.src=g[f];n.parentNode.insertBefore(h,n);delete g[f];d(g);l[m]=c})(window,_affirm_config,"affirm","checkout","ui","script","ready");
     // Use your live public API Key and https://cdn1.affirm.com/js/v2/affirm.js script to point to Affirm production environment.
   </script>
-  <!-- End Affirm -->
+
   {% render 'boost-pfs' %}
   {%- render '__footerhash' -%}
 </body>

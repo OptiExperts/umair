@@ -300,7 +300,7 @@ and settings.sidebar-link-list-3 == blank
               template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}
               ">
   {% render 'elevar-body-end' %}
-  <script   >
+  <script type="lazyload2">
     window.Pacific = {};
     Pacific.settings = {{ settings | json }};
     document.documentElement.className=document.documentElement.className.replace(/\bno-js\b/,'js');
@@ -385,7 +385,7 @@ and settings.sidebar-link-list-3 == blank
 
   <form id="checkout_form" action="{{ routes.cart_url }}" method="POST" style="display: none;"></form>
 
-  <script   >
+  <script type="lazyload2">
     (function () {
       function handleFirstTab(e) {
         if (e.keyCode === 9) { // the "I am a keyboard user" key

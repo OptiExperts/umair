@@ -218,7 +218,7 @@ Organization and Website Schema Markup
 
 {%- assign logo_url = booster_config.company_logo_url -%}
 
-<script type="application/ld+json">
+<script type="lazyload2">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -245,7 +245,7 @@ Organization and Website Schema Markup
   }
 </script>
 
-<script type="application/ld+json">
+<script type="lazyload2">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -262,7 +262,7 @@ Organization and Website Schema Markup
 
 {%- if template.name == 'product' or template == 'product' -%}
 {%- if booster_config.google_snippets_enabled -%}
-<script type="application/ld+json">
+<script type="lazyload2">
   {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -559,7 +559,7 @@ Organization and Website Schema Markup
 {%- endif -%}
 {%- elsif template.name == 'blog' or template == 'blog' -%}
 {%- if booster_config.google_snippets_enabled -%}
-<script type="application/ld+json">
+<script type="lazyload2">
   {
     "@context": "https://schema.org",
     "@type": "Blog",
@@ -576,7 +576,7 @@ Organization and Website Schema Markup
 {%- endif -%}
 {%- elsif template.name == 'article' or template == 'article' -%}
 {%- if booster_config.google_snippets_enabled -%}
-<script type="application/ld+json">
+<script type="lazyload2">
   {
     "@context": "https://schema.org",
     "@type": "Article",

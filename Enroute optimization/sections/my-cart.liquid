@@ -1,0 +1,92 @@
+<div class="my-cart" id="drawer-name" data-section-type="drawer" data-drawer-target>
+  <div data-ajax-cart-section class="my-cart-wrapper">
+    <h2>Continue Shopping</h2>
+    <button class="card__close" data-drawer-close aria-label="Close Drawer"></button>
+    <div class="my-cart-items" data-ajax-cart-section-scroll>
+      
+
+      <div class="card_content">
+        {% for item in cart.items %}
+      {% assign item_index = forloop.index %}
+        <div class="card-content-wrap">
+          <div class="card-content-image">
+            <img src="{{ item.image | img_url: 'master' }}" />
+          </div>
+          <div class="card-content-main">
+            <div class="cart-content-top">
+              <a class="cart-content-title" href="{{ item.url }}">{{ item.title }}</a>
+              <a class="cart-content-remove"
+                href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0">
+                {% render 'icon' with 'close' %}
+              </a>
+            </div>
+            <div class="cart-content-bot">
+              {% for property in item.properties %}
+              <div>
+                {{ property.first }}:
+                {% if property.first == 'Engraving' %}
+                <input type="text" value="{{ property.last }}"
+                  data-ajax-cart-property-input="{{ item_index }}[{{ property.first }}]" />
+                {% else %}
+                {{ property.last }}
+                {% endif %}
+              </div>
+              {% endfor %}
+
+              <div class="card-current-value">
+                <div>
+                  <input class="cart-item-count cart-item-quantity-display"
+                    data-ajax-cart-quantity-input="{{ item_index }}" name="updates[]" value="{{ item.quantity }}"
+                    type="number" />
+                  <a class="cart-item-decrease" data-ajax-cart-request-button
+                    href="{{ routes.cart_change_url }}?line={{ item_index }}&quantity={{ item.quantity | minus: 1 }}">
+                    {% render 'icon' with 'minus' %}
+                  </a>
+                  <a class="cart-item-increase minus" data-ajax-cart-request-button
+                    href="{{ routes.cart_change_url }}?line={{ item_index }}&quantity={{ item.quantity | plus: 1 }}">
+                    {% render 'icon' with 'plus' %}
+                  </a>
+                </div>
+              </div>
+              <div class="card-price-main">
+                <div class="final-price money" style="text-align: right;">{{ item.final_price | money }}</div>
+                <div>Total: <span class="final-price money">{{ item.final_line_price | money }}</span>
+                  {%- if item_has_discounts -%}
+                  <s class="original-price"><span class="money">{{ item.original_line_price | money }}</span></s>
+                  {%- endif -%}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div data-ajax-cart-messages="{{ item.key }}" style="margin-top: -30px; font-size: 14px;"></div>
+        {% endfor %}
+      </div>
+      <div class="info-block-drawen" style="margin-top: 50px;">
+        <h4 class="cart-total">Total: <span id="cart__total_price">{{ cart.total_price | money_with_currency }}</span>
+        </h4>
+        <a id="cart__checkout_btn" href="/checkout" class="button" style="width:100%;">Proceed Checkout</a>
+        <a id="cart__checkout_btn" href="{{ routes.cart_url }}" class="button" style="width:100%;">Go to cart</a>
+      </div>
+    </div>
+
+    <div data-ajax-cart-static-element class="my-cart__app-container"></div>
+  </div>
+</div>
+<style>
+  @media screen and (max-width:600px) {
+    .info-block-drawen {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .info-block-drawen #cart__checkout_btn {
+      margin-bottom: 10px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+</style>
+{% schema %} { "name": "Card drawer" } {% endschema %}

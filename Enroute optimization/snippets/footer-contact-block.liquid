@@ -1,0 +1,18 @@
+<div class="footer-module">
+  <h4>{{block.settings.contact-heading}}</h4>
+  <div class="footer-contact">
+    <p>
+      {{block.settings.contact-address}}
+    </p>
+    <p>
+      <a href="mailto:{{block.settings.contact-mail}}" target="">
+        <span itemprop="email">{{block.settings.contact-mail}}</span>
+      </a>
+    </p>
+    <p>
+      <a class="" href="tel:{{ block.settings.contact-phone | remove:'+' |remove: ' '}}" target="">
+        <span itemprop="telephone">{{block.settings.contact-phone}}</span>
+      </a>
+    </p>
+  </div>
+</div>

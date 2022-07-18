@@ -1,0 +1,177 @@
+{% assign imageAlignment = section.settings.image-alignment %}
+
+<div class="image-section media-aligned-{{ imageAlignment }}">
+  <div class="home-module-content image-section__wrap">
+    <div class="col-sm-6 rte image-section-content">
+      <div class="image-card sqs-dynamic-text-container">
+        <h1 class="image-title">{{ section.settings.section_heading }}</h1>
+        <p>{{ section.settings.section_content }}</p>
+        {%- if section.settings.section_rate != blank -%}
+          <p class="rate">Rate: {{ section.settings.section_rate }}</p>
+        {% endif %}
+        {%- if section.settings.section_button_url != blank -%}
+          <a href="{{ section.settings.section_button_url }}" target="_blank" class="button">{{
+            section.settings.section_button_text }}</a>
+        {% endif %}
+      </div>
+    </div>
+    <div class="col-sm-6 rte">
+      <img src="{{ section.settings.section_image | img_url: 'master' }}" />
+    </div>
+  </div>
+</div>
+
+
+<style>
+  .image-section {
+    padding-bottom: 40px;
+    padding-top: 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .image-section p {
+    color: #6d6d6d;
+    font-size: 18px;
+  }
+
+  .image-section__wrap {
+    display: flex;
+  }
+
+  .image-title {
+    margin: 0;
+    font-size: 36px;
+  }
+
+.image-section__wrap {
+  margin: 0 -15px;
+  font-size: 0;
+}
+@media (max-width: 720px) {
+  .image-section__wrap {
+    margin: 0;
+  }
+}
+.media-aligned-left .image-section__wrap {
+  direction: rtl;
+}
+.media-aligned-left .image-section__wrap .rte {
+  direction: ltr;
+}
+.image-section__wrap .rte {
+  font-size: var(--font-size-body);
+  display: inline-block;
+  vertical-align: middle;
+  width: 50%;
+  padding: 0 15px;
+}
+@media (max-width: 810px) {
+  .image-section__wrap {
+    flex-direction: column;
+  }
+  
+  .image-section__wrap .rte {
+    width: 100%;
+  }
+
+  .image-section-content {
+    margin-bottom: 40px!important;
+  }
+
+  .image-title {
+    font-size: 26px;
+  }
+
+  .image-section p {
+    margin: 12px 0;
+    line-height: 23px;
+  }
+
+  .image-card a {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 720px) {
+  .home-imported-content-wrapper .rte {
+    display: block;
+    width: 100%;
+    margin-top: 30px;
+    padding: 0;
+  }
+  
+  .image-section__wrap .rte {
+    padding: 0;
+  }
+}
+
+@media (max-width: 332px) {
+  .image-card a {
+    display: block;
+    width: 100%;
+    min-height: 35px;
+    margin: 0 auto;
+    text-align: center;
+}
+}
+</style>
+
+{% schema %}
+{
+  "name": "Image section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section1 Heading"
+    },
+    {
+      "type": "html",
+      "id": "section_content",
+      "label": "Section Content"
+    },
+    {
+      "type": "text",
+      "id": "section_rate",
+      "label": "Section Rate Title"
+    },
+    {
+      "type": "url",
+      "id": "section_button_url",
+      "label": "Section Button URL"
+    },
+    {
+      "type": "text",
+      "id": "section_button_text",
+      "label": "Section Button Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "section_image",
+      "label": "Section Image"
+    },
+    {
+      "type": "select",
+      "id": "image-alignment",
+      "label": "Image alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "right"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image section"
+    }
+  ]
+}
+
+{% endschema %}

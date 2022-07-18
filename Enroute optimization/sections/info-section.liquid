@@ -1,0 +1,97 @@
+{% assign headingColor = section.settings.heading-color %}
+{% assign textColor = section.settings.text-color %}
+
+<div class="info-block" style="background:{{ section.settings.block-color }}">
+  <div>
+    <h4 style="color:{{ headingColor }}">{{ section.settings.subtitle-1}}</h4>
+    <p style="color:{{ textColor }}">{{ section.settings.content-1 }}</p>
+    <h4 style="color:{{ headingColor }}">{{ section.settings.subtitle-2}}</h4>
+    <p style="color:{{ textColor }}">{{ section.settings.content-2 }}</p>
+    {%- if section.settings.block_button_text != blank -%}
+        <a href="{{ section.settings.block_button_url }}" target="_blank" class="button info-button">{{
+          section.settings.block_button_text }}</a>
+    {% endif %}
+  </div>
+</div>
+
+
+<style>
+  .info-block {
+    padding: 50px 15px;
+  }
+
+  .info-block h4 {
+    margin: 0; 
+  }
+
+  .info-button {
+    display: block;
+    margin: 0 auto;
+    max-width: 200px;
+    text-align: center;
+    min-height: 40px;
+    background-color: #cfbb99;
+    color: #000;
+  }
+</style>
+
+
+{% schema %}
+    {
+      "name": "Info block",
+      "settings": [
+        {
+          "type": "color",
+          "id": "block-color",
+          "label": "Block Color"
+        },
+        {
+          "type": "color",
+          "id": "heading-color",
+          "label": "Heading Color"
+        },
+        {
+          "type": "color",
+          "id": "text-color",
+          "label": "Text Color"
+        },
+        {
+          "type": "text",
+          "id": "subtitle-1",
+          "default": "CARBON REPAIR",
+          "label": "Sub title1"
+        },
+        {
+          "type": "text",
+          "id": "content-1",
+          "label": "Content1"
+        },
+        {
+          "type": "text",
+          "id": "subtitle-2",
+          "default": "BIKE BUILDS",
+          "label": "Sub title2"
+        },
+        {
+          "type": "text",
+          "id": "content-2",
+          "label": "Content2"
+        },
+        {
+          "type": "url",
+          "id": "block_button_url",
+          "label": "Block Button URL"
+        },
+        {
+          "type": "text",
+          "id": "block_button_text",
+          "label": "Block Button Text"
+        }
+      ],
+        "presets": [
+    {
+      "name": "Info block"
+    }
+  ]
+    }
+{% endschema %}

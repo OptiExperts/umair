@@ -1,374 +1,335 @@
 <!doctype html>
 <html class="no-js no-touch" lang="{{ request.locale.iso_code }}">
-  <head>
+<head>
+  {% render 'elevar-head' %}
+  {% render 'elevar-head-listener' %}
+{% include 'booster-seo' %}
 
-    <script>
-      let array = [];
-      function x_parentNode_insertBefore(src) {
-        if(typeof isUnblocked != "undefiend")
-        {
-          if(isUnblocked)
-          {
-            var script = document.createElement('script');
-            script.src = src;
-            document.getElementsByTagName('head')[0].appendChild(script);
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-          }
-          else{
-            array.push(src);
-          }
+  <!-- Preconnect Domains -->
+  <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.shopify.com" crossorigin>
+  <link rel="preconnect" href="https://monorail-edge.shopifysvc.com">
 
-        }
-        else
+  <!-- Preload Assets -->
+  <link rel="preload" href="{{ 'theme.css' | asset_url }}" as="style">
+  <link rel="preload" href="{{ 'pacific.min.js' | asset_url }}" as="script">
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 
+  {% comment %}<title>
+    {{- page_title -}}
 
-        {
+    {%- if current_tags -%}
+      &ndash; {{ 'blogs.blog.seo_title' | t }} "{{ current_tags | join: ', ' }}"
+    {%- endif -%}
 
-          array.push(src);
+    {%- if current_page != 1 -%}
+      &ndash; {{ 'general.pagination.seo_title' | t }} {{ current_page }}
+    {%- endif -%}
 
-        }
+    {%- unless page_title contains shop.name -%}
+      &ndash; {{ shop.name }}
+    {%- endunless -%}
+  </title>{% endcomment %}
 
-
-      }
-      function first_parentNode_insertBefore(src){
-        array.push(src);
-      }
-    </script>
-
-    <script>
-      var _0x5349=['platform','classList','createElement','attributes','No-optimization','removeChild','getElementById','data-srcset','readyState','8233rrwTlW','checkout','mousemove','top','srcset','dataset','location','enroute-cc.myshopify.com','dispatchEvent','Linux\x20x86_64','width','querySelectorAll','.lazybg','appendChild','data-src','insertBefore','rel','lazybg','stylesheet','1897690eBdiuW','lazy2','setAttribute','scroll','wnw_load','link[data-href]','img.lazy2','body','onload','Yes-optimization','nextSibling','innerHTML','572171GEjXnu','mobsrc','innerHeight','getAttribute','script[type=lazyload2]','forEach','805408pNJrvU','9995jWVcqK','log','script','remove','DOMContentLoaded','src','data-href','onreadystatechange','iframe','touchstart','1165575NTzyQw','nodeName','mobstyle','1004847ImCLpH','cart','indexOf','open','type','length','initEvent','11FWFliM','parentNode','1gIAEGT','style[type=lazyload2]','value','addEventListener','onerror','href','nodeValue','style','createEvent','name'];var _0x4e3b0e=_0x1e4d;(function(_0x318486,_0x20ec39){var _0x5a5f79=_0x1e4d;while(!![]){try{var _0x3580bf=parseInt(_0x5a5f79(0x15f))+parseInt(_0x5a5f79(0x11c))*-parseInt(_0x5a5f79(0x162))+-parseInt(_0x5a5f79(0x154))+-parseInt(_0x5a5f79(0x14e))+-parseInt(_0x5a5f79(0x11a))*parseInt(_0x5a5f79(0x12f))+parseInt(_0x5a5f79(0x155))+parseInt(_0x5a5f79(0x142));if(_0x3580bf===_0x20ec39)break;else _0x318486['push'](_0x318486['shift']());}catch(_0x1561c2){_0x318486['push'](_0x318486['shift']());}}}(_0x5349,0x928cf));var src,srcset,windowWidth,critical2,lazyBackground,lazyIframe,lazybg,xmlhttp,s,i,flag=0x1,lazy_load_by_px=0xc8,external_single_loaded=0x1;function wnw_init(){flag&&(flag=0x0,lazyLoadImg(),lazyLoadBackground(),lazyLoadStyle(),lazyLoadCss(),load_all_js(),lazyLoadIframe());}function insertAfter(_0x1cda90,_0x55535b){var _0x2c0125=_0x1e4d;_0x55535b['parentNode'][_0x2c0125(0x13e)](_0x1cda90,_0x55535b[_0x2c0125(0x14c)]);}function lazyLoadImg(){var _0x42338f=_0x1e4d,_0x3d7592=document['querySelectorAll'](_0x42338f(0x148)),_0x19867e=window[_0x42338f(0x150)];for(i=0x0;i<_0x3d7592[_0x42338f(0x167)];i++){var _0x5ca606=_0x3d7592[i]['getBoundingClientRect']();0x0!=_0x5ca606[_0x42338f(0x132)]&&_0x5ca606[_0x42338f(0x132)]-_0x19867e<lazy_load_by_px&&(src=windowWidth<0x258?void 0x0===_0x3d7592[i]['dataset'][_0x42338f(0x14f)]?_0x3d7592[i][_0x42338f(0x134)][_0x42338f(0x15a)]:_0x3d7592[i][_0x42338f(0x134)]['mobsrc']:void 0x0===_0x3d7592[i][_0x42338f(0x134)]['src']?_0x3d7592[i][_0x42338f(0x15a)]:_0x3d7592[i]['dataset'][_0x42338f(0x15a)],srcset=_0x3d7592[i]['getAttribute'](_0x42338f(0x12d))?_0x3d7592[i][_0x42338f(0x151)](_0x42338f(0x12d)):'',null!=src&&''!=src&&(_0x3d7592[i][_0x42338f(0x15a)]=src),null!=srcset&&''!=srcset&&(_0x3d7592[i][_0x42338f(0x133)]=srcset),_0x3d7592[i][_0x42338f(0x127)]['remove'](_0x42338f(0x143)));}}function lazyLoadBackground(){var _0x2e4c80=_0x1e4d;(lazyBackground=document[_0x2e4c80(0x13a)](_0x2e4c80(0x13b)))['forEach'](function(_0x161bf9){var _0x901a37=_0x2e4c80;null!=(lazybg=windowWidth<0x258?void 0x0===_0x161bf9[_0x901a37(0x134)][_0x901a37(0x161)]?_0x161bf9['dataset'][_0x901a37(0x123)]:_0x161bf9[_0x901a37(0x134)][_0x901a37(0x161)]:void 0x0===_0x161bf9['dataset'][_0x901a37(0x123)]?_0x161bf9[_0x901a37(0x123)]:_0x161bf9[_0x901a37(0x134)][_0x901a37(0x123)])&&''!=lazybg&&(_0x161bf9[_0x901a37(0x123)]=lazybg),_0x161bf9[_0x901a37(0x127)][_0x901a37(0x158)](_0x901a37(0x140));});}function _0x1e4d(_0x3a6758,_0x5f5137){return _0x1e4d=function(_0x534934,_0x1e4d5f){_0x534934=_0x534934-0x11a;var _0x66f7bd=_0x5349[_0x534934];return _0x66f7bd;},_0x1e4d(_0x3a6758,_0x5f5137);}function lazyLoadCss(){var _0x21a695=_0x1e4d,_0x2dd222=document['querySelectorAll'](_0x21a695(0x147));for(i=0x0;i<_0x2dd222[_0x21a695(0x167)];i++){var _0x2beb2b=document[_0x21a695(0x128)]('link');_0x2beb2b[_0x21a695(0x121)]=_0x2dd222[i][_0x21a695(0x151)](_0x21a695(0x15b)),_0x2beb2b[_0x21a695(0x13f)]=_0x21a695(0x141),delete _0x2dd222[i][_0x21a695(0x134)][_0x21a695(0x121)],_0x2dd222[i][_0x21a695(0x11b)][_0x21a695(0x13e)](_0x2beb2b,_0x2dd222[i]),_0x2dd222[i][_0x21a695(0x11b)][_0x21a695(0x12b)](_0x2dd222[i]);}}function lazyLoadStyle(){var _0x4445ce=_0x1e4d,_0x10d154=document[_0x4445ce(0x13a)](_0x4445ce(0x11d));for(i=0x0;i<_0x10d154['length'];i++){var _0x66eff5=document[_0x4445ce(0x128)]('style');_0x66eff5[_0x4445ce(0x14d)]=_0x10d154[i]['innerHTML'],_0x10d154[i]['parentNode'][_0x4445ce(0x13e)](_0x66eff5,_0x10d154[i]),_0x10d154[i][_0x4445ce(0x11b)][_0x4445ce(0x12b)](_0x10d154[i]);}}function lazyLoadIframe(){var _0x194d37=_0x1e4d;(lazyIframe=document['querySelectorAll'](_0x194d37(0x15d)))['forEach'](function(_0x4a075f){var _0x41001f=_0x194d37;null!=_0x4a075f[_0x41001f(0x134)][_0x41001f(0x15a)]&&''!=_0x4a075f[_0x41001f(0x134)]['src']&&(_0x4a075f[_0x41001f(0x15a)]=_0x4a075f[_0x41001f(0x134)]['src']);});}function w3_load_js_uri(_0x148fa8){var _0x460652=_0x1e4d,_0x2764c7=document[_0x460652(0x128)]('script');if(void 0x0!==_0x148fa8[_0x460652(0x129)]){for(var _0x2c3b71,_0x39c8e4=0x0,_0x4554a3=_0x148fa8[_0x460652(0x129)],_0x37f424=_0x4554a3['length'];_0x39c8e4<_0x37f424;_0x39c8e4++)_0x460652(0x13d)!=(_0x2c3b71=_0x4554a3[_0x39c8e4])[_0x460652(0x160)]&&_0x460652(0x166)!=_0x2c3b71['nodeName']&&_0x2764c7[_0x460652(0x144)](_0x2c3b71[_0x460652(0x160)],_0x2c3b71[_0x460652(0x122)]);}return _0x2764c7[_0x460652(0x15a)]=_0x148fa8[_0x460652(0x151)]('data-src'),insertAfter(_0x2764c7,_0x148fa8),delete _0x148fa8[_0x460652(0x134)][_0x460652(0x15a)],delete _0x148fa8[_0x460652(0x166)],_0x148fa8[_0x460652(0x11b)]['removeChild'](_0x148fa8),_0x2764c7;}function w3_load_inline_js_single(_0x49f9d9){var _0x150603=_0x1e4d;if(!external_single_loaded)return setTimeout(function(){w3_load_inline_js_single(_0x49f9d9);},0xc8),!0x1;for(var _0x4ea3ca=document[_0x150603(0x128)](_0x150603(0x157)),_0x2fd8ed=0x0;_0x2fd8ed<_0x49f9d9[_0x150603(0x129)][_0x150603(0x167)];_0x2fd8ed++){var _0x34040a=_0x49f9d9['attributes'][_0x2fd8ed];'type'!=_0x34040a[_0x150603(0x125)]&&_0x4ea3ca[_0x150603(0x144)](_0x34040a[_0x150603(0x125)],_0x34040a[_0x150603(0x11e)]);}_0x4ea3ca[_0x150603(0x14d)]=_0x49f9d9[_0x150603(0x14d)],insertAfter(_0x4ea3ca,_0x49f9d9),_0x49f9d9[_0x150603(0x11b)][_0x150603(0x12b)](_0x49f9d9);}function lazyLoadScripts(){var _0x533c52=_0x1e4d,_0x389c71=document['querySelectorAll'](_0x533c52(0x152));if(!(_0x389c71[_0x533c52(0x167)]<0x1)){if(null!==_0x389c71[0x0][_0x533c52(0x151)]('data-src')){var _0x50aa84=w3_load_js_uri(_0x389c71[0x0]);_0x50aa84['onload']=function(){lazyLoadScripts();},_0x50aa84[_0x533c52(0x120)]=function(){lazyLoadScripts();};}else w3_load_inline_js_single(_0x389c71[0x0]),lazyLoadScripts();}}function lazyLoadCss2(_0x4ad726,_0x282419){var _0x10d71e=_0x1e4d;(xmlhttp=new XMLHttpRequest())[_0x10d71e(0x15c)]=function(){var _0x252251=_0x10d71e;0x4==this[_0x252251(0x12e)]&&0xc8==this['status']&&(document[_0x252251(0x12c)](_0x282419)[_0x252251(0x14d)]=this['responseText']);},xmlhttp[_0x10d71e(0x165)]('GET',_0x4ad726,!0x0),xmlhttp['send']();}function lazyLoadJS(_0x198984){var _0x535c61=_0x1e4d;(s=document[_0x535c61(0x128)](_0x535c61(0x157)))[_0x535c61(0x15a)]=_0x198984,s[_0x535c61(0x14a)]=function(){var _0x5d388a=_0x535c61;document[_0x5d388a(0x149)][_0x5d388a(0x13c)](s);};}function load_all_js(){var _0xd13b25=_0x1e4d;window[_0xd13b25(0x135)][_0xd13b25(0x121)][_0xd13b25(0x164)](_0xd13b25(0x136))>-0x1||window[_0xd13b25(0x135)][_0xd13b25(0x121)][_0xd13b25(0x164)](_0xd13b25(0x163))>-0x1||window[_0xd13b25(0x135)][_0xd13b25(0x121)][_0xd13b25(0x164)](_0xd13b25(0x130))>-0x1?console[_0xd13b25(0x156)](_0xd13b25(0x12a)):(console['log'](_0xd13b25(0x14b)),setTimeout(function(){var _0x50678a=_0xd13b25,_0x10fe5d=new Event(_0x50678a(0x146));window[_0x50678a(0x137)](_0x10fe5d);},0xc8)),lazyLoadScripts(),setTimeout(function(){var _0x2e1549=_0xd13b25,_0x2db5a2=document[_0x2e1549(0x124)]('Event');_0x2db5a2[_0x2e1549(0x168)]('DOMContentLoaded2',!0x0,!0x0),window['document'][_0x2e1549(0x137)](_0x2db5a2),(critical2=document[_0x2e1549(0x13a)]('.critical2'))[_0x2e1549(0x153)](function(_0xcfee60){var _0x35fc27=_0x2e1549;_0xcfee60[_0x35fc27(0x14d)]='';});},0xbb8);}document[_0x4e3b0e(0x11f)](_0x4e3b0e(0x159),function(){var _0x3302c2=_0x4e3b0e;windowWidth=screen[_0x3302c2(0x139)],window['addEventListener'](_0x3302c2(0x145),function(){lazyLoadImg(),wnw_init();}),window[_0x3302c2(0x11f)](_0x3302c2(0x131),function(){lazyLoadImg(),wnw_init();}),_0x3302c2(0x138)!=navigator[_0x3302c2(0x126)]&&wnw_init(),window[_0x3302c2(0x11f)](_0x3302c2(0x15e),function(){lazyLoadImg(),wnw_init();});});
-    </script>
-    
-    {% render 'elevar-head' %}
-    {% render 'elevar-head-listener' %}
-    {% include 'booster-seo' %}
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    {% comment %} 
-    <!-- Preconnect Domains -->
-    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.shopify.com" crossorigin>
-    <link rel="preconnect" href="https://monorail-edge.shopifysvc.com">
-
-    <!-- Preload Assets -->
-       
-    <link rel="preload" href="{{ 'theme.css' | asset_url }}" as="style">
-    <link rel="preload" href="{{ 'pacific.js' | asset_url }}" as="script">
-
-	{% endcomment %}
-    
-        <link rel="stylesheet" data-href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-
-
-    {% if page_description %}
+  {% if page_description %}
     {% comment %}<meta name="description" content="{{ page_description | escape }}" />{% endcomment %}
-    {% endif %}
+  {% endif %}
 
-    {% if settings.favicon %}
+  {% if settings.favicon %}
     <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png" />
-    {% endif %}
+  {% endif %}
 
-    {% if template contains 'collection' and current_tags %}
+  {% if template contains 'collection' and current_tags %}
     <meta name="robots" content="noindex" />
     <link rel="canonical" href="{{ shop.url }}{{ collection.url }}" />
-    {% else %}
+  {% else %}
     <link rel="canonical" href="{{ canonical_url }}" />
-    {% endif %}
+  {% endif %}
 
-        <!----- Content For Header section -->
+{{ content_for_header }}
 
-    {{ content_for_header }}
-
-    {% assign twitter_handle = settings.social-twitter-url | split: 'twitter.com/' | last %}
-    {%
+  {% assign twitter_handle = settings.social-twitter-url | split: 'twitter.com/' | last %}
+  {%
     render 'social-meta-tags',
     twitter_handle: twitter_handle
-    %}
+  %}
 
-    <!-- Theme CSS -->
-    <link rel="stylesheet" data-href="{{ 'theme.css' | asset_url }}">
-    
-    {% if template contains 'index' %}
-    {%- render '__home-css' -%}
-    {% elsif template contains 'product' %}
-    {%- render '__product-css' -%}
-    {% elsif template contains 'collection' %}
-    {%- render '__collection-css' -%}
-    {% else %}
-    {{ 'theme.css' | asset_url | stylesheet_tag }}
-    {% endif %}
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
 
-    <!-- Theme object -->
-    {% comment %}Inject theme-object begin{% endcomment %}
-    <script type= src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!--     <script type= src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script> -->
-     <script type="text/javascript" src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-    <script   >
-
-      window.Shop = {};
-
-      Shop.cartQuantityError = {
-        title: {{ 'cart.quantity_error.title' | t | json }},
-        message: {{ 'cart.quantity_error.message' | t: quantity: '** quantity **', title: '** title **' | json }},
-        button: {{ 'cart.quantity_error.button' | t | json }},
-      };
-
-      Shop.moneyFormat = {{ shop.money_format | json }};
-
-      {% if shop.customer_accounts_enabled and customer %}
+  <!-- Theme object -->
+  {% comment %}Inject theme-object begin{% endcomment %}
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <script>
+  
+    window.Shop = {};
+  
+    Shop.cartQuantityError = {
+      title: {{ 'cart.quantity_error.title' | t | json }},
+      message: {{ 'cart.quantity_error.message' | t: quantity: '** quantity **', title: '** title **' | json }},
+      button: {{ 'cart.quantity_error.button' | t | json }},
+    };
+  
+    Shop.moneyFormat = {{ shop.money_format | json }};
+  
+    {% if shop.customer_accounts_enabled and customer %}
       Shop.customerLoggegdIn = true;
-      {% endif %}
-
-      {% if cart.requires_shipping %}
+    {% endif %}
+  
+    {% if cart.requires_shipping %}
       Shop.requiresShipping = true
-      {% endif %}
-
-      {% if shop.customer_accounts_enabled and customer and customer.default_addresses %}
+    {% endif %}
+  
+    {% if shop.customer_accounts_enabled and customer and customer.default_addresses %}
       Shop.customerAddress = {{ customer.default_address | json }};
-      {% endif %}
-
-      window.Theme = {
-        version: '5.0.1',
-        name: 'Pacific',
-        routes: {
-          "root_url": "{{ routes.root_url }}",
-          "account_url": "{{ routes.account_url }}",
-          "account_login_url": "{{ routes.account_login_url }}",
-          "account_logout_url": "{{ routes.account_logout_url }}",
-          "account_register_url": "{{ routes.account_register_url }}",
-          "account_addresses_url": "{{ routes.account_addresses_url }}",
-          "collections_url": "{{ routes.collections_url }}",
-          "all_products_collection_url": "{{ routes.all_products_collection_url }}",
-          "search_url": "{{ routes.search_url }}",
-          "cart_url": "{{ routes.cart_url }}",
-          "cart_add_url": "{{ routes.cart_add_url }}",
-          "cart_change_url": "{{ routes.cart_change_url }}",
-          "cart_clear_url": "{{ routes.cart_clear_url }}",
-          "product_recommendations_url": "{{ routes.product_recommendations_url }}"
-        }
-      };
-    </script>
-    {% comment %}Inject theme-object end{% endcomment %}
-
-
-
-    <link rel="stylesheet" data-href="{{ 'my-cart.css' | asset_url }}">
-    <script type= src="{{ 'my-cart.js' | asset_url }}"></script>
-    {% capture boostersnippet %}{% include "booster-apps-common" %}{% endcapture %}{% unless boostersnippet contains "Liquid error" %}{{ boostersnippet }}{% endunless %}
-
-    {% render 'gsf-conversion-pixels' %}
-
-
-    <style>
-      /*Klaviyo css*/
-      .btn.klaviyo-bis-trigger {
-        padding: 10px 35px !important;
-        background: #CFBB99 !important;
-        color: #2B2B2B !important;
-        border-radius: 4px !important;
+    {% endif %}
+  
+    window.Theme = {
+      version: '5.0.1',
+      name: 'Pacific',
+      routes: {
+        "root_url": "{{ routes.root_url }}",
+        "account_url": "{{ routes.account_url }}",
+        "account_login_url": "{{ routes.account_login_url }}",
+        "account_logout_url": "{{ routes.account_logout_url }}",
+        "account_register_url": "{{ routes.account_register_url }}",
+        "account_addresses_url": "{{ routes.account_addresses_url }}",
+        "collections_url": "{{ routes.collections_url }}",
+        "all_products_collection_url": "{{ routes.all_products_collection_url }}",
+        "search_url": "{{ routes.search_url }}",
+        "cart_url": "{{ routes.cart_url }}",
+        "cart_add_url": "{{ routes.cart_add_url }}",
+        "cart_change_url": "{{ routes.cart_change_url }}",
+        "cart_clear_url": "{{ routes.cart_clear_url }}",
+        "product_recommendations_url": "{{ routes.product_recommendations_url }}"
       }
-
-    </style>
-
-    <!--begin-boost-pfs-filter-css-->
-    {% render 'boost-pfs-style' %}
-    <!--end-boost-pfs-filter-css-->
+    };
+  </script>
+  {% comment %}Inject theme-object end{% endcomment %}
 
 
-    </head>
+  
+{{ 'my-cart.css' | asset_url | stylesheet_tag }}
+{{ 'my-cart.js' | asset_url | script_tag }}
+{% capture boostersnippet %}{% include "booster-apps-common" %}{% endcapture %}{% unless boostersnippet contains "Liquid error" %}{{ boostersnippet }}{% endunless %}
+
+{% render 'gsf-conversion-pixels' %}
+  
+  
+  <style>
+    /*Klaviyo css*/
+    .btn.klaviyo-bis-trigger {
+      padding: 10px 35px !important;
+      background: #CFBB99 !important;
+      color: #2B2B2B !important;
+      border-radius: 4px !important;
+    }
+    
+  </style>
+
+ <!--begin-boost-pfs-filter-css-->
+   {% render 'boost-pfs-style' %}
+ <!--end-boost-pfs-filter-css-->
+
+ 
+{% render "geo" %}</head>
 
 
-  {% assign sidebar = false %}
-  {% if settings.enable-sidebar == 'all' %}
+{% assign sidebar = false %}
+{% if settings.enable-sidebar == 'all' %}
   {% if template contains 'index' %}
-  {% assign sidebar = true %}
+    {% assign sidebar = true %}
   {% elsif template contains 'collection' %}
-  {% assign sidebar = true %}
+    {% assign sidebar = true %}
   {% endif %}
-  {% elsif settings.enable-sidebar == 'not-home' and template contains 'collection' %}
+{% elsif settings.enable-sidebar == 'not-home' and template contains 'collection' %}
   {% assign sidebar = true %}
-  {% endif %}
+{% endif %}
 
-  {% if sidebar
+{% if sidebar
   and settings.sidebar-link-list-1 == blank
   and settings.sidebar-link-list-2 == blank
   and settings.sidebar-link-list-3 == blank
-  %}
+%}
   {% assign sidebar = false %}
-  {% endif %}
+{% endif %}
 
-  <body class="
-               {% if customer %}customer-logged-in{% endif %}
-               sidebar-{% if sidebar %}enabled{% else %}disabled{% endif %}
-               template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}
-               ">
-    {% render 'elevar-body-end' %}
-    <script   >
-      window.Pacific = {};
-      Pacific.settings = {{ settings | json }};
-      document.documentElement.className=document.documentElement.className.replace(/\bno-js\b/,'js');
-      if(('ontouchstart' in window)||window.DocumentTouch&&document instanceof DocumentTouch)document.documentElement.className=document.documentElement.className.replace(/\bno-touch\b/,'has-touch');
-    </script>
+<body class="
+  {% if customer %}customer-logged-in{% endif %}
+  sidebar-{% if sidebar %}enabled{% else %}disabled{% endif %}
+  template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}
+">
+  {% render 'elevar-body-end' %}
+  <script>
+    window.Pacific = {};
+    Pacific.settings = {{ settings | json }};
+    document.documentElement.className=document.documentElement.className.replace(/\bno-js\b/,'js');
+    if(('ontouchstart' in window)||window.DocumentTouch&&document instanceof DocumentTouch)document.documentElement.className=document.documentElement.className.replace(/\bno-touch\b/,'has-touch');
+  </script>
 
-    {% comment %}Inject icon-star-symbol begin{% endcomment %}
-    <svg
-         class="icon-star-reference"
-         aria-hidden="true"
-         focusable="false"
-         role="presentation"
-         xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="3 3 17 17" fill="none"
-         >
-      <symbol id="icon-star">
-        <rect class="icon-star-background" width="20" height="20" fill="currentColor"/>
-        <path d="M10 3L12.163 7.60778L17 8.35121L13.5 11.9359L14.326 17L10 14.6078L5.674 17L6.5 11.9359L3 8.35121L7.837 7.60778L10 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-      </symbol>
-      <clipPath id="icon-star-clip">
-        <path d="M10 3L12.163 7.60778L17 8.35121L13.5 11.9359L14.326 17L10 14.6078L5.674 17L6.5 11.9359L3 8.35121L7.837 7.60778L10 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </clipPath>
-    </svg>
-    {% comment %}{% section 'drawer' %}{% endcomment %}
-
-
-    {% section 'pxs-announcement-bar' %}
-    {% section 'header' %}
-    {% section 'my-cart' %}
+  {% comment %}Inject icon-star-symbol begin{% endcomment %}
+  <svg
+    class="icon-star-reference"
+    aria-hidden="true"
+    focusable="false"
+    role="presentation"
+    xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="3 3 17 17" fill="none"
+  >
+    <symbol id="icon-star">
+      <rect class="icon-star-background" width="20" height="20" fill="currentColor"/>
+      <path d="M10 3L12.163 7.60778L17 8.35121L13.5 11.9359L14.326 17L10 14.6078L5.674 17L6.5 11.9359L3 8.35121L7.837 7.60778L10 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </symbol>
+    <clipPath id="icon-star-clip">
+      <path d="M10 3L12.163 7.60778L17 8.35121L13.5 11.9359L14.326 17L10 14.6078L5.674 17L6.5 11.9359L3 8.35121L7.837 7.60778L10 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </clipPath>
+  </svg>
+  {% comment %}{% section 'drawer' %}{% endcomment %}
 
 
-    <div class="main-content-wrapper">
-      <div class="main-content">
-        {% unless template contains 'index' %}
+  {% section 'pxs-announcement-bar' %}
+  {% section 'header' %}
+  {% section 'my-cart' %}
+  
+
+  <div class="main-content-wrapper">
+    <div class="main-content">
+      {% unless template contains 'index' %}
         <div class="page-header">
           {% render 'page-header' %}
         </div>
-        {% endunless %}
-        {{ content_for_layout }}
-      </div>
+      {% endunless %}
+      {{ content_for_layout }}
+    </div>
 
-      {% if sidebar %}
+    {% if sidebar %}
       {% render 'sidebar' %}
-      {% endif %}
-    </div>
+    {% endif %}
+  </div>
 
-    {% section 'promotions' %}
-    {% section 'footer' %}
+  {% section 'promotions' %}
+  {% section 'footer' %}
 
-    {% comment %}Inject sidebar-drawer begin{% endcomment %}
-    <div class="sidebar-drawer-container" data-sidebar-drawer-container>
-      <div class="sidebar-drawer" data-sidebar-drawer tab-index="-1">
-        <div class="sidebar-drawer__header-container">
-          <div class="sidebar-drawer__header" data-sidebar-drawer-header></div>
-
-          <button
-                  class="sidebar-drawer__header-close"
-                  aria-label="close"
-                  data-sidebar-drawer-close
-                  >
-            {% render 'icon' with 'close' %}
-          </button>
-        </div>
-
-        <div class="sidebar-drawer__content" data-sidebar-drawer-content></div>
+  {% comment %}Inject sidebar-drawer begin{% endcomment %}
+  <div class="sidebar-drawer-container" data-sidebar-drawer-container>
+    <div class="sidebar-drawer" data-sidebar-drawer tab-index="-1">
+      <div class="sidebar-drawer__header-container">
+        <div class="sidebar-drawer__header" data-sidebar-drawer-header></div>
+  
+        <button
+          class="sidebar-drawer__header-close"
+          aria-label="close"
+          data-sidebar-drawer-close
+        >
+          {% render 'icon' with 'close' %}
+        </button>
       </div>
+  
+      <div class="sidebar-drawer__content" data-sidebar-drawer-content></div>
     </div>
+  </div>
+ 
 
+  <!-- Scripts -->
+  <script
+    src="{{ 'pacific.min.js' | asset_url }}"
+    data-scripts
+    data-shopify-api-url="{{ 'api.jquery.js' | shopify_asset_url }}"
+    data-shopify-countries="/services/javascripts/countries.js"
+    data-shopify-common="{{ 'shopify_common.js' | shopify_asset_url }}"
+    data-shopify-cart="{{ 'jquery.cart.min.js' | asset_url }}"
+    data-customer-area="{{ 'customer_area.js' | shopify_asset_url }}"
+    data-pxu-polyfills="{{ 'polyfills.js' | asset_url }}"
+    defer>
+  </script>
 
-    <!-- Scripts -->
-    <script 
-              
-            data-src="{{ 'pacific.js' | asset_url }}"
-            data-scripts
-            data-shopify-api-url="{{ 'api.jquery.js' | shopify_asset_url }}"
-            data-shopify-countries="/services/javascripts/countries.js"
-            data-shopify-common="{{ 'shopify_common.js' | shopify_asset_url }}"
-            data-shopify-cart="{{ 'jquery.cart.min.js' | asset_url }}"
-            data-customer-area="{{ 'customer_area.js' | shopify_asset_url }}"
-            data-pxu-polyfills="{{ 'polyfills.js' | asset_url }}"
-            defer>
-    </script>
+  <form id="checkout_form" action="{{ routes.cart_url }}" method="POST" style="display: none;"></form>
 
-    <form id="checkout_form" action="{{ routes.cart_url }}" method="POST" style="display: none;"></form>
-
-    <script   >
-      (function () {
-        function handleFirstTab(e) {
-          if (e.keyCode === 9) { // the "I am a keyboard user" key
-            document.body.classList.add('user-is-tabbing');
-            window.removeEventListener('keydown', handleFirstTab);
-          }
+  <script>
+    (function () {
+      function handleFirstTab(e) {
+        if (e.keyCode === 9) { // the "I am a keyboard user" key
+          document.body.classList.add('user-is-tabbing');
+          window.removeEventListener('keydown', handleFirstTab);
         }
-        window.addEventListener('keydown', handleFirstTab);
-      })();
-    </script> 
+      }
+      window.addEventListener('keydown', handleFirstTab);
+    })();
+  </script>
+
+
+  
+  <script type="application/json" data-ajax-cart-initial-state>
+    {{ cart | json }}
+  </script>
+  
+  <script type="module">
+    import '{{ "liquid-ajax-cart-v1.10.0.js" | asset_url }}';
+  </script>
+  
+  
+  
+  
+<!-- Back In Stock Flow Snippet start-->
+<script type="text/javascript" src="https://a.klaviyo.com/media/js/onsite/onsite.js"></script>
+<script>
+    var klaviyo = klaviyo || [];
+    klaviyo.init({
+      account: "UjtQD3",
+      platform: "shopify"
+    });
+    klaviyo.enable("backinstock",{ 
+    trigger: {
+      product_page_text: "Notify Me When Available",
+      product_page_class: "btn",
+      product_page_text_align: "center",
+      product_page_margin: "0px",
+      replace_anchor: false
+    },
+    modal: {
+     headline: "{product_name}",
+     body_content: "Register to receive a notification when this item comes back in stock.",
+     email_field_label: "Email",
+     button_label: "Notify me when available",
+     subscription_success_label: "You're in! We'll let you know when it's back.",
+     footer_content: '',
+     additional_styles: "@import url('https://fonts.googleapis.com/css?family=Helvetica+Neue');",
+     drop_background_color: "#000",
+     background_color: "#fff",
+     text_color: "#222",
+     button_text_color: "##2B2B2B",
+     button_background_color: "#CFBB99",
+     close_button_color: "#ccc",
+     error_background_color: "#fcd6d7",
+     error_text_color: "#C72E2F",
+     success_background_color: "#d3efcd",
+     success_text_color: "#1B9500"
+    }
+  });
+</script>
+
+<!-- Back In Stock Flow Snippet End-->
+  
+<!-- Affirm -->
+<script>
+_affirm_config = {
+   public_api_key:  "YTOO8KS01QYWVN9M",
+   script:          "https://cdn1.affirm.com/js/v2/affirm.js"
+};
+(function(l,g,m,e,a,f,b){var d,c=l[m]||{},h=document.createElement(f),n=document.getElementsByTagName(f)[0],k=function(a,b,c){return function(){a[b]._.push([c,arguments])}};c[e]=k(c,e,"set");d=c[e];c[a]={};c[a]._=[];d._=[];c[a][b]=k(c,a,b);a=0;for(b="set add save post open empty reset on off trigger ready setProduct".split(" ");a<b.length;a++)d[b[a]]=k(c,e,b[a]);a=0;for(b=["get","token","url","items"];a<b.length;a++)d[b[a]]=function(){};h.async=!0;h.src=g[f];n.parentNode.insertBefore(h,n);delete g[f];d(g);l[m]=c})(window,_affirm_config,"affirm","checkout","ui","script","ready");
+// Use your live public API Key and https://cdn1.affirm.com/js/v2/affirm.js script to point to Affirm production environment.
+</script>
+<!-- End Affirm -->
   
 
 
-    <script data-ajax-cart-initial-state>
-    {{ cart | json }}
-    </script>
-
-    <script   >var __webpack_modules__={917:(t,e,r)=>{r.d(e,{x$:()=>y,nd:()=>h,yF:()=>g,fi:()=>m,Be:()=>q,Q4:()=>A,hi:()=>C,wI:()=>o,cB:()=>a});const o="add",a="change",n="update",s="clear",i="get",c=[],u=[],d=[];function _(t){var e;(null===(e=t.options)||void 0===e?void 0:e.newQueue)||0===d.length?1===d.push([t])&&(p(!0),l()):d[0].push(t)}function l(){if(0===d.length)return void p(!1);if(0===d[0].length)return d.shift(),void l();const{requestType:t,body:e,options:r}=d[0][0];!function(t,e,r,a){const n=x(t);let s;t!==i&&(s=e||{});const u=t===i?"GET":"POST",d=r.info||{},_="firstComplete"in r?[r.firstComplete]:[],l={requestType:t,endpoint:n,requestBody:s,info:d},p=[];if(c.forEach((e=>{try{e({requestType:t,endpoint:n,info:d,requestBody:s},(t=>{_.push(t)}))}catch(t){console.error("Liquid Ajax Cart: Error during Ajax request subscriber callback in ajax-api"),console.error(t)}})),"lastComplete"in r&&_.push(r.lastComplete),d.cancel)return void f(_,a,l);if(void 0!==s){let t;if(s instanceof FormData||s instanceof URLSearchParams?s.has("sections")&&(t=s.get("sections").toString()):t=s.sections,"string"==typeof t||t instanceof String||Array.isArray(t)){const e=[];if(Array.isArray(t)?e.push(...t):e.push(...t.split(",")),e.length>5){p.push(...e.slice(5));const t=e.slice(0,5).join(",");s instanceof FormData||s instanceof URLSearchParams?s.set("sections",t):s.sections=t}}else null!=t&&console.error(`Liquid Ajax Cart: "sections" parameter in a Cart Ajax API request must be a string or an array. Now it is ${t}`)}const m={method:u};t!==i&&(s instanceof FormData||s instanceof URLSearchParams?(m.body=s,m.headers={"x-requested-with":"XMLHttpRequest"}):(m.body=JSON.stringify(s),m.headers={"Content-Type":"application/json"})),fetch(n,m).then((t=>t.json().then((e=>({ok:t.ok,status:t.status,body:e}))))).then((e=>(l.responseData=e,o!==t&&0===p.length||!l.responseData.ok?l:b(p).then((t=>(l.extraResponseData=t,l)))))).catch((t=>{console.error("Liquid Ajax Cart: Error while performing cart Ajax request"),console.error(t),l.fetchError=t})).finally((()=>{f(_,a,l)}))}(t,e,r,(()=>{d[0].shift(),l()}))}function p(t){u.forEach((e=>{try{e(t)}catch(t){console.error("Liquid Ajax Cart: Error during queues subscriber callback in ajax-api"),console.error(t)}}))}function f(t,e,r){if(t.forEach((t=>{try{t(r)}catch(t){console.error("Liquid Ajax Cart: Error during Ajax request result callback in ajax-api"),console.error(t)}})),e)try{e()}catch(t){console.error("Liquid Ajax Cart: Error during Ajax request final internal callback in ajax-api"),console.error(t)}}function b(t=[]){const e={};return t.length>0&&(e.sections=t.slice(0,5).join(",")),fetch(x(n),{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(e)}).then((e=>e.json().then((r=>{const o={ok:e.ok,status:e.status,body:r};return t.length<6?o:b(t.slice(5)).then((t=>{var e;return t.ok&&(null===(e=t.body)||void 0===e?void 0:e.sections)&&"object"==typeof t.body.sections&&("sections"in o.body||(o.body.sections={}),o.body.sections=Object.assign(Object.assign({},o.body.sections),t.body.sections)),o}))}))))}function m(t={}){_({requestType:i,body:void 0,options:t})}function y(t={},e={}){_({requestType:o,body:t,options:e})}function h(t={},e={}){_({requestType:a,body:t,options:e})}function q(t={},e={}){_({requestType:n,body:t,options:e})}function g(t={},e={}){_({requestType:s,body:t,options:e})}function A(t){c.push(t)}function C(t){u.push(t)}function x(t){switch(t){case o:return"/cart/add.js";case a:return"/cart/change.js";case i:return"/cart.js";case s:return"/cart/clear.js";case n:return"/cart/update.js";default:return}}},552:(t,e,r)=>{r.d(e,{w:()=>x});var o=r(935),a=r(917),n=r(158);const s="/cart/change",i="/cart/add",c="/cart/clear",u="/cart/update";function d(t,e){const{requestButtonAttribute:r}=o.Xd.computed;let d;const _=[s,i,c,u];if(!t.hasAttribute(r))return;const l=t.getAttribute(r);if(l){let t;try{if(t=new URL(l,window.location.origin),!_.includes(t.pathname))throw"URL should be one of the following: /cart/change, /cart/add, /cart/update, /cart/clear";d=t}catch(t){console.error(`Liquid Ajax Cart: ${r} contains an invalid URL as a parameter.`,t)}}else if(t instanceof HTMLAnchorElement&&t.hasAttribute("href")){const e=new URL(t.href);_.includes(e.pathname)?d=e:t.hasAttribute(r)&&console.error(`Liquid Ajax Cart: a link with the ${r} contains an invalid href URL.`,"URL should be one of the following: /cart/change, /cart/add, /cart/update, /cart/clear")}if(void 0===d)return void console.error(`Liquid Ajax Cart: a ${r} element doesn't have a valid URL`);if(e&&e.preventDefault(),(0,n.KJ)().status.requestInProgress)return;const p=new FormData;switch(d.searchParams.forEach(((t,e)=>{p.append(e,t)})),d.pathname){case i:(0,a.x$)(p,{newQueue:!0,info:{initiator:t}});break;case s:(0,a.nd)(p,{newQueue:!0,info:{initiator:t}});break;case u:(0,a.Be)(p,{newQueue:!0,info:{initiator:t}});break;case c:(0,a.yF)({},{newQueue:!0,info:{initiator:t}})}}function _(t,e){let r,o;return e.status.cartStateSet&&(t.length>3?(r=e.cart.items.find((e=>e.key===t)),o="id"):(r=e.cart.items[Number(t)-1],o="line"),void 0===r&&(r=null,console.error(`Liquid Ajax Cart: line item with ${o}="${t}" not found`))),[r,o]}function l(t){const{quantityInputAttribute:e}=o.Xd.computed;return!!t.hasAttribute(e)&&(t instanceof HTMLInputElement&&("text"===t.type||"number"===t.type)||(console.error(`Liquid Ajax Cart: the ${e} attribute supports "input" elements only with the "text" and the "number" types`),!1))}function p(t){const{quantityInputAttribute:e}=o.Xd.computed;t.status.requestInProgress?document.querySelectorAll(`input[${e}]`).forEach((t=>{l(t)&&(t.disabled=!0)})):document.querySelectorAll(`input[${e}]`).forEach((r=>{if(!l(r))return;const o=r.getAttribute(e).trim(),[a]=_(o,t);a?r.value=a.quantity.toString():null===a&&(r.value="0"),r.disabled=!1}))}function f(t,e){const{quantityInputAttribute:r}=o.Xd.computed;if(!l(t))return;if(e&&e.preventDefault(),(0,n.KJ)().status.requestInProgress)return;let s=Number(t.value.trim());const i=t.getAttribute(r).trim();if(isNaN(s))return void console.error("Liquid Ajax Cart: input value of a data-ajax-cart-quantity-input must be an Integer number");if(s<1&&(s=0),!i)return void console.error("Liquid Ajax Cart: attribute value of a data-ajax-cart-quantity-input must be an item key or an item index");const c=i.length>3?"id":"line",u=new FormData;u.set(c,i),u.set("quantity",s.toString()),(0,a.nd)(u,{newQueue:!0,info:{initiator:t}}),t.blur()}function b(t){const{propertyInputAttribute:e}=o.Xd.computed,r=t.getAttribute(e),a=t.getAttribute("name");console.error(`Liquid Ajax Cart: the element [${e}="${r}"]${a?`[name="${a}"]`:""} has wrong attributes.`)}function m(t){const{propertyInputAttribute:e}=o.Xd.computed;return!!t.hasAttribute(e)&&(t instanceof HTMLInputElement&&"hidden"!==t.type||t instanceof HTMLTextAreaElement||t instanceof HTMLSelectElement)}function y(t){const{propertyInputAttribute:e}=o.Xd.computed,r={objectCode:void 0,propertyName:void 0,attributeValue:void 0};if(!t.hasAttribute(e))return r;let a=t.getAttribute(e).trim();if(!a){const e=t.getAttribute("name").trim();e&&(a=e)}if(!a)return b(t),r;if(r.attributeValue=a,"note"===a)return r.objectCode="note",r;let[n,...s]=a.trim().split("[");return!s||1!==s.length||s[0].length<2||s[0].indexOf("]")!==s[0].length-1?(b(t),r):(r.objectCode=n,r.propertyName=s[0].replace("]",""),r)}function h(t){const{propertyInputAttribute:e}=o.Xd.computed;t.status.requestInProgress?document.querySelectorAll(`[${e}]`).forEach((t=>{m(t)&&(t.disabled=!0)})):document.querySelectorAll(`[${e}]`).forEach((r=>{if(!m(r))return;const{objectCode:o,propertyName:a,attributeValue:n}=y(r);if(!o)return;if(!t.status.cartStateSet)return;let s,i=!1;if("note"===o)s=t.cart.note;else if("attributes"===o)s=t.cart.attributes[a];else{const[r,c]=_(o,t);r&&(s=r.properties[a]),null===r&&(console.error(`Liquid Ajax Cart: line item with ${c}="${o}" was not found when the [${e}] element with "${n}" value tried to get updated from the State`),i=!0)}r instanceof HTMLInputElement&&("checkbox"===r.type||"radio"===r.type)?r.value===s?r.checked=!0:r.checked=!1:("string"==typeof s||s instanceof String||"number"==typeof s||s instanceof Number||(Array.isArray(s)||s instanceof Object?(s=JSON.stringify(s),console.warn(`Liquid Ajax Cart: the ${e} with the "${n}" value is bound to the ${a} ${"attributes"===o?"attribute":"property"} that is not string or number: ${s}`)):s=""),r.value=s),i||(r.disabled=!1)}))}function q(t,e){const{propertyInputAttribute:r}=o.Xd.computed;if(!m(t))return;e&&e.preventDefault(),t.blur();const s=(0,n.KJ)();if(!s.status.cartStateSet)return;if(s.status.requestInProgress)return;const{objectCode:i,propertyName:c,attributeValue:u}=y(t);if(!i)return;let d=t.value;if(t instanceof HTMLInputElement&&"checkbox"===t.type&&!t.checked){let t=document.querySelector(`input[type="hidden"][${r}="${u}"]`);t||"note"!==i&&"attributes"!==i||(t=document.querySelector(`input[type="hidden"][${r}][name="${u}"]`)),d=t?t.value:""}if("note"===i){const e=new FormData;e.set("note",d),(0,a.Be)(e,{newQueue:!0,info:{initiator:t}})}else if("attributes"===i){const e=new FormData;e.set(`attributes[${c}]`,d),(0,a.Be)(e,{newQueue:!0,info:{initiator:t}})}else{const[e,o]=_(i,s);if(null===e&&console.error(`Liquid Ajax Cart: line item with ${o}="${i}" was not found when the [${r}] element with "${u}" value tried to update the cart`),!e)return;const n=Object.assign({},e.properties);n[c]=d;const l=new FormData;let p=l;l.set(o,i),l.set("quantity",e.quantity.toString());for(let t in n){const r=n[t];"string"==typeof r||r instanceof String?l.set(`properties[${t}]`,n[t]):p={[o]:i,quantity:e.quantity,properties:n}}(0,a.nd)(p,{newQueue:!0,info:{initiator:t}})}}const g="toggle",A="remove";function C(t,e){const{toggleClassButtonAttribute:r}=o.Xd.computed;if(!t.hasAttribute(r))return;e&&e.preventDefault();const a=t.getAttribute(r).split("|");if(!a)return void console.error("Liquid Ajax Cart: Error while toggling body class");const n=a[0].trim();let s=a[1]?a[1].trim():g;if("add"!==s&&s!==A&&(s=g),n)try{"add"===s?document.body.classList.add(n):s===A?document.body.classList.remove(n):document.body.classList.toggle(n)}catch(e){console.error("Liquid Ajax Cart: Error while toggling body class:",n),console.error(e)}}function x(){document.addEventListener("click",(function(t){for(let e=t.target;e&&e!=document.documentElement;e=e.parentElement)d(e,t)}),!1),document.addEventListener("change",(function(t){q(t.target,t)}),!1),document.addEventListener("keydown",(function(t){const e=t.target;"Enter"===t.key&&(e instanceof HTMLTextAreaElement&&!t.ctrlKey||q(e,t)),"Escape"===t.key&&function(t){if(!m(t))return;if(!(t instanceof HTMLInputElement||t instanceof HTMLTextAreaElement))return;if(t instanceof HTMLInputElement&&("checkbox"===t.type||"radio"===t.type))return;const e=(0,n.KJ)();if(!e.status.cartStateSet)return void t.blur();const{objectCode:r,propertyName:o}=y(t);if(!r)return;let a;if("note"===r)a=e.cart.note;else if("attributes"===r)a=e.cart.attributes[o];else{const[t]=_(r,e);t&&(a=t.properties[o])}void 0!==a&&(a||"string"==typeof a||a instanceof String||(a=""),t.value=String(a)),t.blur()}(e)}),!1),(0,n.w0)(h),h((0,n.KJ)()),document.addEventListener("change",(function(t){f(t.target,t)}),!1),document.addEventListener("keydown",(function(t){"Enter"===t.key&&f(t.target,t),"Escape"===t.key&&function(t){const{quantityInputAttribute:e}=o.Xd.computed;if(!l(t))return;const r=t.getAttribute(e).trim();let a;const s=(0,n.KJ)();if(s.status.cartStateSet){if(r.length>3)a=s.cart.items.find((t=>t.key===r));else{const t=Number(r)-1;a=s.cart.items[t]}a&&(t.value=a.quantity.toString())}t.blur()}(t.target)}),!1),(0,n.w0)(p),p((0,n.KJ)()),document.addEventListener("click",(function(t){for(let e=t.target;e&&e!=document.documentElement;e=e.parentElement)C(e,t)}),!1)}},932:(t,e,r)=>{r.d(e,{I:()=>u,p:()=>c});var o=r(158),a=r(935);function n(t){const{binderAttribute:e}=a.Xd.computed;t.status.cartStateSet&&document.querySelectorAll(`[${e}]`).forEach((t=>{const r=t.getAttribute(e);t.textContent=function(t){const{stateBinderFormatters:e}=a.Xd,{binderAttribute:r}=a.Xd.computed,[n,...c]=t.split("|");let u=s(n,(0,o.KJ)());return c.forEach((t=>{const r=t.trim();""!==r&&("object"==typeof e&&r in e?u=e[r](u):r in i?u=i[r](u):console.warn(`Liquid Ajax Cart: the "${r}" formatter is not found`))})),"string"==typeof u||u instanceof String||"number"==typeof u||u instanceof Number?u.toString():(console.error(`Liquid Ajax Cart: the calculated value for the ${r}="${t}" element must be string or number. But the value is`,u),"")}(r)}))}function s(t,e){const r=t.split("."),o=r.shift().trim();return""!==o&&o in e&&r.length>0?s(r.join("."),e[o]):e[o]}const i={money_with_currency:t=>{var e;const r=(0,o.KJ)();if("number"!=typeof t&&!(t instanceof Number))return console.error("Liquid Ajax Cart: the 'money_with_currency' formatter is not applied because the value is not a number. The value is ",t),t;const a=t/100;return"Intl"in window&&(null===(e=window.Shopify)||void 0===e?void 0:e.locale)?Intl.NumberFormat(window.Shopify.locale,{style:"currency",currency:r.cart.currency}).format(a):`${a.toFixed(2)} ${r.cart.currency}`}};function c(){n((0,o.KJ)())}function u(){(0,o.w0)(n),n((0,o.KJ)())}},299:(t,e,r)=>{r.d(e,{w:()=>c});var o=r(935),a=r(158),n=r(917);function s(t){const{cartStateSetBodyClass:e,requestInProgressBodyClass:r,emptyCartBodyClass:a,notEmptyCartBodyClass:n}=o.Xd.computed;e&&(t.status.cartStateSet?document.body.classList.add(e):document.body.classList.remove(e)),r&&(t.status.requestInProgress?document.body.classList.add(r):document.body.classList.remove(r)),a&&(t.status.cartStateSet&&0===t.cart.item_count?document.body.classList.add(a):document.body.classList.remove(a)),n&&(t.status.cartStateSet&&0===t.cart.item_count?document.body.classList.remove(n):document.body.classList.add(n))}let i;const c=()=>{(0,a.w0)(s),s((0,a.KJ)()),(0,n.Q4)(((t,e)=>{"add"===t.requestType&&e((t=>{var e;if(null===(e=t.responseData)||void 0===e?void 0:e.ok){const{addToCartCssClass:t}=o.Xd;let e="",r=0;if("string"==typeof t||t instanceof String?e=t:Array.isArray(t)&&2===t.length&&("string"==typeof t[0]||t[0]instanceof String)&&("number"==typeof t[1]||t[1]instanceof Number)?(e=t[0],t[1]>0?r=t[1]:console.error(`Liquid Ajax Cart: the addToCartCssClass[1] value must be a positive integer. Now it is ${t[1]}`)):console.error('Liquid Ajax Cart: the "addToCartCssClass" configuration parameter must be a string or a [string, number] array'),""!==e){try{document.body.classList.add(e)}catch(t){console.error(`Liquid Ajax Cart: error while adding the "${e}" CSS class from the addToCartCssClass parameter to the body tag`),console.error(t)}r>0&&(void 0!==i&&clearTimeout(i),i=setTimeout((()=>{document.body.classList.remove(e)}),r))}}}))}))}},900:(t,e,r)=>{r.d(e,{k:()=>_});var o=r(917),a=r(158),n=r(935);const s="error",i="shopify_error",c=(t,e)=>{e((t=>{var e,r;const{messagesAttribute:o}=n.Xd.computed,{lineItemQuantityErrorText:i,messageBuilder:c}=n.Xd;if(t.info.cancel)return;const u=(0,a.KJ)();let _,l,p,f,b=1,m=[];if(t.requestBody instanceof FormData||t.requestBody instanceof URLSearchParams?(t.requestBody.has("line")&&(l=t.requestBody.get("line").toString()),t.requestBody.has("id")&&(_=t.requestBody.get("id").toString())):("line"in t.requestBody&&(l=String(t.requestBody.line)),"id"in t.requestBody&&(_=String(t.requestBody.id))),l){const t=Number(l);t>0&&u.status.cartStateSet&&(p=t-1,_=null===(e=u.cart.items[p])||void 0===e?void 0:e.key)}if(_&&(_.indexOf(":")>-1?f=document.querySelectorAll(`[${o}="${_}"]`):u.status.cartStateSet&&(f=document.querySelectorAll(u.cart.items.reduce(((t,e)=>(e.key!==_&&e.id!==Number(_)||t.push(`[${o}="${e.key}"]`),t)),[]).join(","))),f.length>0&&f.forEach((t=>{t.innerHTML=""}))),null===(r=t.responseData)||void 0===r?void 0:r.ok){if(!u.previousCart)return;(t.requestBody instanceof FormData||t.requestBody instanceof URLSearchParams)&&t.requestBody.has("quantity")?b=Number(t.requestBody.get("quantity").toString()):"quantity"in t.requestBody&&(b=Number(t.requestBody.quantity)),_&&(m=t.responseData.body.items.reduce(((t,e)=>(e.key!==_&&e.id!=Number(_)||t.push(e),t)),[])),m.forEach((e=>{!isNaN(b)&&e.quantity<b&&u.previousCart.item_count===t.responseData.body.item_count&&f.forEach((r=>{r.getAttribute(o)===e.key&&(r.innerHTML=c([{type:s,text:i,code:"line_item_quantity_error",requestState:t}]))}))}))}else{const e=d(t);f&&f.length>0&&f.forEach((t=>{t.innerHTML=c([e])}))}}))},u=(t,e)=>{var r;const o=null===(r=t.info)||void 0===r?void 0:r.initiator;let a;o instanceof HTMLFormElement&&(a=o.querySelectorAll(`[${n.Xd.computed.messagesAttribute}="form"]`),a.length>0&&a.forEach((t=>{t.innerHTML=""}))),e((t=>{if(t.info.cancel)return;const{messageBuilder:e}=n.Xd,r=d(t);r&&a&&a.forEach((t=>{t.innerHTML=e([r])}))}))};function d(t){var e;const{requestErrorText:r}=n.Xd;if(!(null===(e=t.responseData)||void 0===e?void 0:e.ok)){if("responseData"in t){if("description"in t.responseData.body)return{type:s,text:t.responseData.body.description,code:i,requestState:t};if("message"in t.responseData.body)return{type:s,text:t.responseData.body.message,code:i,requestState:t}}return{type:s,text:r,code:"request_error",requestState:t}}}const _=()=>{(0,o.Q4)(((t,e)=>{const r={};r[o.wI]=u,r[o.cB]=c,t.requestType in r&&r[t.requestType](t,e)}))}},453:(t,e,r)=>{r.d(e,{h:()=>s});var o=r(935),a=r(917);const n=new WeakMap,s=()=>{document.addEventListener("submit",(t=>{const e=t.target;let r;if("/cart/add"!==new URL(e.action).pathname)return;if("productFormsFilter"in o.Xd&&!o.Xd.productFormsFilter(e))return;if(t.preventDefault(),r=n.get(e),r>0||(r=0),r>0)return;const s=new FormData(e);n.set(e,r+1),i(e),(0,a.x$)(s,{lastComplete:t=>{const r=n.get(e);r>0&&n.set(e,r-1),i(e)},newQueue:!0,info:{initiator:e}})}))};function i(t){const e=n.get(t);o.Xd.computed.productFormsProcessingClass&&(e>0?t.classList.add(o.Xd.computed.productFormsProcessingClass):t.classList.remove(o.Xd.computed.productFormsProcessingClass))}},192:(t,e,r)=>{r.d(e,{t:()=>s,W:()=>i});var o=r(917),a=r(935);const n=[];function s(){(0,o.Q4)(((t,e)=>{const{sectionsAttribute:r,staticElementAttribute:s,sectionScrollAreaAttribute:i}=a.Xd.computed;if(void 0!==t.requestBody){const e=[];if(document.querySelectorAll(`[${r}]`).forEach((t=>{const o=t.closest('[id^="shopify-section-"]');if(o){const t=o.id.replace("shopify-section-","");-1===e.indexOf(t)&&e.push(t)}else console.error(`Liquid Ajax Cart: there is a ${r} element that is not inside a Shopify section. All the ${r} elements must be inside Shopify sections.`)})),e.length){let r,o=e.join(",");t.requestBody instanceof FormData||t.requestBody instanceof URLSearchParams?t.requestBody.has("sections")&&(r=t.requestBody.get("sections").toString()):r=t.requestBody.sections,(("string"==typeof r||r instanceof String)&&""!==r||Array.isArray(r)&&r.length>0)&&(o=`${r.toString()},${o}`),t.requestBody instanceof FormData||t.requestBody instanceof URLSearchParams?t.requestBody.set("sections",o):t.requestBody.sections=o}}e((t=>{var e,r,i;const{sectionsAttribute:c,sectionScrollAreaAttribute:u}=a.Xd.computed,d=new DOMParser,_=[];if((null===(e=t.responseData)||void 0===e?void 0:e.ok)&&"sections"in t.responseData.body){let e=t.responseData.body.sections;(null===(i=null===(r=t.extraResponseData)||void 0===r?void 0:r.body)||void 0===i?void 0:i.sections)&&(e=Object.assign(Object.assign({},e),t.extraResponseData.body.sections));for(let r in e)e[r]?document.querySelectorAll(`#shopify-section-${r}`).forEach((a=>{let n=[];const i="__noId__",l={};a.querySelectorAll(` [${u}] `).forEach((t=>{let e=t.getAttribute(u).toString().trim();""===e&&(e=i),e in l||(l[e]=[]),l[e].push({scroll:t.scrollTop,height:t.scrollHeight})}));const p={},f=a.querySelectorAll(`[${s}]`);f&&f.forEach((t=>{let e=t.getAttribute(s).toString().trim();""===e&&(e=i),e in p||(p[e]=[]),p[e].push(t)}));const b=a.querySelectorAll(`[${c}]`);if(b){const t=d.parseFromString(e[r],"text/html");for(let e in p)t.querySelectorAll(` [${s}="${e.replace(i,"")}"] `).forEach(((t,r)=>{r+1<=p[e].length&&(t.before(p[e][r]),t.parentElement.removeChild(t))}));const o=t.querySelectorAll(`[${c}]`);if(b.length!==o.length){console.error(`Liquid Ajax Cart: the received HTML for the "${r}" section has a different quantity of the "${c}" containers. The section will be updated completely.`);const e=t.querySelector(`#shopify-section-${r}`);if(e){for(a.innerHTML="";e.childNodes.length;)a.appendChild(e.firstChild);n.push(a)}}else b.forEach(((t,e)=>{t.before(o[e]),t.parentElement.removeChild(t),n.push(o[e])}))}for(let e in l)a.querySelectorAll(` [${u}="${e.replace(i,"")}"] `).forEach(((r,a)=>{a+1<=l[e].length&&(t.requestType!==o.wI||l[e][a].height>=r.scrollHeight)&&(r.scrollTop=l[e][a].scroll)}));n.length>0&&_.push({id:r,elements:n})})):console.error(`Liquid Ajax Cart: the HTML for the "${r}" section was requested but the response is ${e[r]}`)}_.length>0&&n.length>0&&n.forEach((t=>{try{t(_)}catch(t){console.error("Liquid Ajax Cart: Error during a call of a sections update subscriber"),console.error(t)}}))}))}))}function i(t){n.push(t)}},935:(t,e,r)=>{r.d(e,{_H:()=>s,Xd:()=>a,ih:()=>n});var o=r(932);const a={productFormsFilter:t=>!0,messageBuilder:t=>{let e="";return t.forEach((t=>{e+=`<div class="js-ajax-cart-message js-ajax-cart-message--${t.type}">${t.text}</div>`})),e},stateBinderFormatters:{},addToCartCssClass:"",lineItemQuantityErrorText:"You can't add more of this item to your cart",requestErrorText:"There was an error while updating your cart. Please try again.",updateOnWindowFocus:!0,computed:{productFormsErrorsAttribute:"data-ajax-cart-form-error",sectionsAttribute:"data-ajax-cart-section",staticElementAttribute:"data-ajax-cart-static-element",binderAttribute:"data-ajax-cart-bind-state",requestButtonAttribute:"data-ajax-cart-request-button",toggleClassButtonAttribute:"data-ajax-cart-toggle-class-button",initialStateAttribute:"data-ajax-cart-initial-state",sectionScrollAreaAttribute:"data-ajax-cart-section-scroll",quantityInputAttribute:"data-ajax-cart-quantity-input",propertyInputAttribute:"data-ajax-cart-property-input",messagesAttribute:"data-ajax-cart-messages",configurationAttribute:"data-ajax-cart-configuration",cartStateSetBodyClass:"js-ajax-cart-set",requestInProgressBodyClass:"js-ajax-cart-request-in-progress",emptyCartBodyClass:"js-ajax-cart-empty",notEmptyCartBodyClass:"js-ajax-cart-not-empty",productFormsProcessingClass:"js-ajax-cart-form-in-progress"}};function n(t,e){t in a&&"computed"!==t?(a[t]=e,"stateBinderFormatters"===t&&(0,o.p)()):console.error(`Liquid Ajax Cart: unknown configuration parameter "${t}"`)}function s(){const t=document.querySelector(`[${a.computed.configurationAttribute}]`);if(t)try{const e=JSON.parse(t.textContent),r=["productFormsFilter","messageBuilder"];for(let t in e)r.includes(t)?console.error(`Liquid Ajax Cart: the "${t}" parameter is not supported inside the "${a.computed.configurationAttribute}" script — use the "configureCart" function for it`):n(t,e[t])}catch(t){console.error(`Liquid Ajax Cart: can't parse configuration JSON from the "${a.computed.configurationAttribute}" script`),console.error(t)}}},158:(t,e,r)=>{r.d(e,{bq:()=>u,w0:()=>_,KJ:()=>l});var o=r(917),a=r(935);const n=[];let s,i=null,c={requestInProgress:!1,cartStateSet:!1};function u(){(0,o.hi)((t=>{c.requestInProgress=t,p(!1)})),(0,o.Q4)(((t,e)=>{e((t=>{var e,r;let a;(null===(e=t.extraResponseData)||void 0===e?void 0:e.ok)&&(a=d(t.extraResponseData.body)),!a&&(null===(r=t.responseData)||void 0===r?void 0:r.ok)&&(t.requestType===o.wI?(0,o.Be)():a=d(t.responseData.body)),a?(s=i,i=a,c.cartStateSet=!0,p(!0)):null===a&&console.error("Liquid Ajax Cart: expected to receive the updated cart state but the object is not recognized. The request state:",t)}))}));const t=document.querySelector(`[${a.Xd.computed.initialStateAttribute}]`);if(t)try{const e=JSON.parse(t.textContent);if(i=d(e),null===i)throw`JSON from ${a.Xd.computed.initialStateAttribute} script is not correct cart object`;c.cartStateSet=!0,p(!0)}catch(t){console.error(`Liquid Ajax Cart: can't parse cart JSON from the "${a.Xd.computed.initialStateAttribute}" script. A /cart.js request will be performed to receive the cart state`),console.error(t),(0,o.fi)()}else(0,o.fi)()}function d(t){const{attributes:e,items:r,item_count:o}=t;if(null==e||"object"!=typeof e)return null;if("number"!=typeof o&&!(o instanceof Number))return null;if(!Array.isArray(r))return null;const a=[];for(let t=0;t<r.length;t++){const e=r[t];if("number"!=typeof e.id&&!(e.id instanceof Number))return null;if("string"!=typeof e.key&&!(e.key instanceof String))return null;if("number"!=typeof e.quantity&&!(e.quantity instanceof Number))return null;if(!("properties"in e))return null;a.push(Object.assign(Object.assign({},e),{id:e.id,key:e.key,quantity:e.quantity,properties:e.properties}))}return Object.assign(Object.assign({},t),{attributes:e,items:a,item_count:o})}function _(t){n.push(t)}function l(){return{cart:i,status:c,previousCart:s}}const p=t=>{n.forEach((e=>{try{e(l(),t)}catch(t){console.error("Liquid Ajax Cart: Error during a call of a cart state update subscriber"),console.error(t)}}))}}},__webpack_module_cache__={};function __webpack_require__(t){var e=__webpack_module_cache__[t];if(void 0!==e)return e.exports;var r=__webpack_module_cache__[t]={exports:{}};return __webpack_modules__[t](r,r.exports,__webpack_require__),r.exports}__webpack_require__.d=(t,e)=>{for(var r in e)__webpack_require__.o(e,r)&&!__webpack_require__.o(t,r)&&Object.defineProperty(t,r,{enumerable:!0,get:e[r]})},__webpack_require__.o=(t,e)=>Object.prototype.hasOwnProperty.call(t,e);var __webpack_exports__={};(()=>{__webpack_require__.d(__webpack_exports__,{ih:()=>export_configureCart,fi:()=>export_cartRequestGet,x$:()=>export_cartRequestAdd,nd:()=>export_cartRequestChange,Be:()=>export_cartRequestUpdate,yF:()=>export_cartRequestClear,Q4:()=>export_subscribeToCartAjaxRequests,KJ:()=>export_getCartState,w0:()=>export_subscribeToCartStateUpdate,WP:()=>export_subscribeToCartSectionsUpdate});var _settings__WEBPACK_IMPORTED_MODULE_0__=__webpack_require__(935),_ajax_api__WEBPACK_IMPORTED_MODULE_8__=__webpack_require__(917),_state__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(158),_dom_binder__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(932),_sections__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(192),_controls__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(552),_product_forms__WEBPACK_IMPORTED_MODULE_5__=__webpack_require__(453),_messages__WEBPACK_IMPORTED_MODULE_6__=__webpack_require__(900),_global_classes__WEBPACK_IMPORTED_MODULE_7__=__webpack_require__(299);function isCompatible(){try{if(!("fetch"in window))return!1;if(!("Promise"in window))return!1;if(!("FormData"in window))return!1;if(!("WeakMap"in window))return!1;if(!("DOMParser"in window))return!1;eval("`foo`"),eval("function foo(bar, ...rest) { return 1; };");const obj={foo:"bar"};let{foo}=obj;const weakMap=new WeakMap;if(weakMap.set(obj,"foo"),foo=weakMap.get(obj),!foo)return!1;const formData=new FormData;return formData.set("foo","bar"),foo=formData.get("foo").toString(),!!foo}catch(t){return console.error(t),!1}}"liquidAjaxCart"in window||(isCompatible()?((0,_settings__WEBPACK_IMPORTED_MODULE_0__._H)(),(0,_product_forms__WEBPACK_IMPORTED_MODULE_5__.h)(),(0,_sections__WEBPACK_IMPORTED_MODULE_3__.t)(),(0,_state__WEBPACK_IMPORTED_MODULE_1__.bq)(),(0,_dom_binder__WEBPACK_IMPORTED_MODULE_2__.I)(),(0,_controls__WEBPACK_IMPORTED_MODULE_4__.w)(),(0,_global_classes__WEBPACK_IMPORTED_MODULE_7__.w)(),(0,_messages__WEBPACK_IMPORTED_MODULE_6__.k)(),window.liquidAjaxCart={configureCart:_settings__WEBPACK_IMPORTED_MODULE_0__.ih,cartRequestGet:_ajax_api__WEBPACK_IMPORTED_MODULE_8__.fi,cartRequestAdd:_ajax_api__WEBPACK_IMPORTED_MODULE_8__.x$,cartRequestChange:_ajax_api__WEBPACK_IMPORTED_MODULE_8__.nd,cartRequestUpdate:_ajax_api__WEBPACK_IMPORTED_MODULE_8__.Be,cartRequestClear:_ajax_api__WEBPACK_IMPORTED_MODULE_8__.yF,subscribeToCartAjaxRequests:_ajax_api__WEBPACK_IMPORTED_MODULE_8__.Q4,getCartState:_state__WEBPACK_IMPORTED_MODULE_1__.KJ,subscribeToCartStateUpdate:_state__WEBPACK_IMPORTED_MODULE_1__.w0,subscribeToCartSectionsUpdate:_sections__WEBPACK_IMPORTED_MODULE_3__.W},window.addEventListener("focus",(()=>{_settings__WEBPACK_IMPORTED_MODULE_0__.Xd.updateOnWindowFocus&&(0,_ajax_api__WEBPACK_IMPORTED_MODULE_8__.Be)({},{})}))):(console.warn("Liquid Ajax Cart is not supported by this browser"),window.liquidAjaxCart={configureCart:()=>{},cartRequestGet:()=>{},cartRequestAdd:()=>{},cartRequestChange:()=>{},cartRequestUpdate:()=>{},cartRequestClear:()=>{},subscribeToCartAjaxRequests:()=>{},getCartState:_state__WEBPACK_IMPORTED_MODULE_1__.KJ,subscribeToCartStateUpdate:()=>{},subscribeToCartSectionsUpdate:()=>{}}));const export_configureCart=window.liquidAjaxCart.configureCart,export_cartRequestGet=window.liquidAjaxCart.cartRequestGet,export_cartRequestAdd=window.liquidAjaxCart.cartRequestAdd,export_cartRequestChange=window.liquidAjaxCart.cartRequestChange,export_cartRequestUpdate=window.liquidAjaxCart.cartRequestUpdate,export_cartRequestClear=window.liquidAjaxCart.cartRequestClear,export_subscribeToCartAjaxRequests=window.liquidAjaxCart.subscribeToCartAjaxRequests,export_getCartState=window.liquidAjaxCart.getCartState,export_subscribeToCartStateUpdate=window.liquidAjaxCart.subscribeToCartStateUpdate,export_subscribeToCartSectionsUpdate=window.liquidAjaxCart.subscribeToCartSectionsUpdate})();var __webpack_exports__cartRequestAdd=__webpack_exports__.x$,__webpack_exports__cartRequestChange=__webpack_exports__.nd,__webpack_exports__cartRequestClear=__webpack_exports__.yF,__webpack_exports__cartRequestGet=__webpack_exports__.fi,__webpack_exports__cartRequestUpdate=__webpack_exports__.Be,__webpack_exports__configureCart=__webpack_exports__.ih,__webpack_exports__getCartState=__webpack_exports__.KJ,__webpack_exports__subscribeToCartAjaxRequests=__webpack_exports__.Q4,__webpack_exports__subscribeToCartSectionsUpdate=__webpack_exports__.WP,__webpack_exports__subscribeToCartStateUpdate=__webpack_exports__.w0;export{__webpack_exports__cartRequestAdd as cartRequestAdd,__webpack_exports__cartRequestChange as cartRequestChange,__webpack_exports__cartRequestClear as cartRequestClear,__webpack_exports__cartRequestGet as cartRequestGet,__webpack_exports__cartRequestUpdate as cartRequestUpdate,__webpack_exports__configureCart as configureCart,__webpack_exports__getCartState as getCartState,__webpack_exports__subscribeToCartAjaxRequests as subscribeToCartAjaxRequests,__webpack_exports__subscribeToCartSectionsUpdate as subscribeToCartSectionsUpdate,__webpack_exports__subscribeToCartStateUpdate as subscribeToCartStateUpdate};</script>
-
-
-
-
-    <!-- Back In Stock Flow Snippet start-->
-    <script type= src="https://a.klaviyo.com/media/js/onsite/onsite.js"></script>
-    <script   >
-      var klaviyo = klaviyo || [];
-      klaviyo.init({
-        account: "UjtQD3",
-        platform: "shopify"
-      });
-      klaviyo.enable("backinstock",{ 
-        trigger: {
-          product_page_text: "Notify Me When Available",
-          product_page_class: "btn",
-          product_page_text_align: "center",
-          product_page_margin: "0px",
-          replace_anchor: false
-        },
-        modal: {
-          headline: "{product_name}",
-          body_content: "Register to receive a notification when this item comes back in stock.",
-          email_field_label: "Email",
-          button_label: "Notify me when available",
-          subscription_success_label: "You're in! We'll let you know when it's back.",
-          footer_content: '',
-          additional_styles: "@import url('https://fonts.googleapis.com/css?family=Helvetica+Neue');",
-          drop_background_color: "#000",
-          background_color: "#fff",
-          text_color: "#222",
-          button_text_color: "##2B2B2B",
-          button_background_color: "#CFBB99",
-          close_button_color: "#ccc",
-          error_background_color: "#fcd6d7",
-          error_text_color: "#C72E2F",
-          success_background_color: "#d3efcd",
-          success_text_color: "#1B9500"
-        }
-      });
-    </script>
-
-    <!-- Back In Stock Flow Snippet End-->
-
-    <!-- Affirm -->
-    <script   >
-      _affirm_config = {
-        public_api_key:  "YTOO8KS01QYWVN9M",
-        script:          "https://cdn1.affirm.com/js/v2/affirm.js"
-      };
-      (function(l,g,m,e,a,f,b){var d,c=l[m]||{},h=document.createElement(f),n=document.getElementsByTagName(f)[0],k=function(a,b,c){return function(){a[b]._.push([c,arguments])}};c[e]=k(c,e,"set");d=c[e];c[a]={};c[a]._=[];d._=[];c[a][b]=k(c,a,b);a=0;for(b="set add save post open empty reset on off trigger ready setProduct".split(" ");a<b.length;a++)d[b[a]]=k(c,e,b[a]);a=0;for(b=["get","token","url","items"];a<b.length;a++)d[b[a]]=function(){};h.async=!0;h.src=g[f];n.parentNode.insertBefore(h,n);delete g[f];d(g);l[m]=c})(window,_affirm_config,"affirm","checkout","ui","script","ready");
-      // Use your live public API Key and https://cdn1.affirm.com/js/v2/affirm.js script to point to Affirm production environment.
-    </script>
-    <!-- End Affirm -->
-
-
-
-    <!--begin-boost-pfs-js-->
-    {% render 'boost-pfs' %}
-    <!--end-boost-pfs-js-->
-    
-  </body>
+ <!--begin-boost-pfs-js-->
+   {% render 'boost-pfs' %}
+ <!--end-boost-pfs-js-->
+</body>
 </html>

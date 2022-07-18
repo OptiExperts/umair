@@ -776,16 +776,16 @@ th {
 -------------------------------- */
 @font-face {
   font-family: "Social Icons";
-  src: url(//cdn.shopify.com/s/files/1/0446/6373/4429/t/51/assets/pixelunionsocialicons-regular.eot?v=67152799333607820471657557715);
-  src: url(//cdn.shopify.com/s/files/1/0446/6373/4429/t/51/assets/pixelunionsocialicons-regular.eot?%23iefix&v=67152799333607820471657557715) format("embedded-opentype"), url(//cdn.shopify.com/s/files/1/0446/6373/4429/t/51/assets/pixelunionsocialicons-regular.woff?v=166346450244837970441657557715) format("woff");
+  src: url(//cdn.shopify.com/s/files/1/0446/6373/4429/t/46/assets/pixelunionsocialicons-regular.eot?v=67152799333607820471656952791);
+  src: url(//cdn.shopify.com/s/files/1/0446/6373/4429/t/46/assets/pixelunionsocialicons-regular.eot?%23iefix&v=67152799333607820471656952791) format("embedded-opentype"), url(//cdn.shopify.com/s/files/1/0446/6373/4429/t/46/assets/pixelunionsocialicons-regular.woff?v=166346450244837970441656952792) format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Pacific";
-  src: url(//cdn.shopify.com/s/files/1/0446/6373/4429/t/51/assets/pacific-icons.eot?v=74912783835964579941657557712);
-  src: url(//cdn.shopify.com/s/files/1/0446/6373/4429/t/51/assets/pacific-icons.eot?%23iefix&v=74912783835964579941657557712) format("embedded-opentype"), url(//cdn.shopify.com/s/files/1/0446/6373/4429/t/51/assets/pacific-icons.woff?v=156460543866264186621657557713) format("woff");
+  src: url(//cdn.shopify.com/s/files/1/0446/6373/4429/t/46/assets/pacific-icons.eot?v=74912783835964579941656952789);
+  src: url(//cdn.shopify.com/s/files/1/0446/6373/4429/t/46/assets/pacific-icons.eot?%23iefix&v=74912783835964579941656952789) format("embedded-opentype"), url(//cdn.shopify.com/s/files/1/0446/6373/4429/t/46/assets/pacific-icons.woff?v=156460543866264186621656952790) format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -12156,5 +12156,3 @@ shopify-payment-terms {
 visibility: hidden;
 }
 /* end */
-  
-  

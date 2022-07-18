@@ -23842,7 +23842,7 @@ class LiveSearch {
         this.navigation.classList.add('header-nav-hidden');
       }
 
-      const headerBottom = this.branding.getBoundingClientRect().bottom;
+      const headerBottom = this.header.getBoundingClientRect().bottom;
       this.searchForm.style.top = this.showBorder ? `${headerBottom + 1}px` : `${headerBottom}px`;
       this.visibleTrigger = this.header.classList.contains('header-search-left') ? leftSearch : rightSearch;
     } else {

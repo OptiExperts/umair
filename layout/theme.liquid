@@ -91,12 +91,14 @@
       
   <link rel="preload" href="{{ 'theme.css' | asset_url }}" as="style">
   <link rel="preload" href="{{ 'pacific.js' | asset_url }}" as="script">
+  
+  
 
 
   
       <link rel="stylesheet"  data-href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 
-
+ <link rel="preload" href="{{ 'custom.css' | asset_url }}" as="style">
   {% if page_description %}
   {% comment %}<meta name="description" content="{{ page_description | escape }}" />{% endcomment %}
   {% endif %}

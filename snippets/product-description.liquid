@@ -50,6 +50,9 @@
     $(".wrapper-tab-content .tab-title").addClass('hide');
     var data_target = $(this).attr('data-target');
     $(".wrapper-tab-content").find(data_target).addClass('active');
+          
+	$(".wrapper-tab-content").find(data_target).css('border-bottom', '2px solid black;');
+          
     $(".wrapper-tab-content").find(data_target).removeClass('hide');
 });
 	</script>

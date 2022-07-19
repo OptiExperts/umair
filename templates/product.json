@@ -30,9 +30,9 @@
         },
         "description": {
           "type": "description",
+          "disabled": true,
           "settings": {
-            "position": "left",
-            "features": "hello"
+            "position": "left"
           }
         },
         "price": {
@@ -67,7 +67,9 @@
       "settings": {
         "enable_zoom": false,
         "gallery_enable_video_autoplay": true,
-        "gallery_enable_video_looping": true
+        "gallery_enable_video_looping": true,
+        "features": "",
+        "sizes": ""
       }
     },
     "product-recommendations": {

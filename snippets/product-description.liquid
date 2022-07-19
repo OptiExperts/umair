@@ -44,3 +44,12 @@
 
 {% endif %}
 
+<script>
+		$(document).on("click", ".list-tabs .tab-links", function(){
+    $(".wrapper-tab-content .tab-title").removeClass('active');
+    $(".wrapper-tab-content .tab-title").addClass('hide');
+    var data_target = $(this).attr('data-target');
+    $(".wrapper-tab-content").find(data_target).addClass('active');
+    $(".wrapper-tab-content").find(data_target).removeClass('hide');
+});
+	</script>

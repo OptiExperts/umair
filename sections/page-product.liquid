@@ -70,7 +70,7 @@
       {% endif %}
     </div>
     <div class="tab-title shipping hide" id="features">
-      	{{section.blocks.settings.features}}
+      	{{section.settings.features}}
     </div>
     <div class="tab-title return hide" id="policy">
       Return
@@ -238,7 +238,14 @@
       "id": "gallery_enable_video_looping",
       "label": "Enable video looping",
       "default": true
-    }
+    },
+	{
+		
+			 "type" : "textarea",
+                "id" : "features",
+                "label" : "Text Tab 2"
+		}
+		
   ],
   "blocks": [
     {
@@ -493,15 +500,9 @@
             }
           ],
           "default": "top"
-        },
+        }
 
-		{
-		
-			 "type" : "textarea",
-                "id" : "features",
-                "label" : "Text Tab 2"
-		}
-		
+	
       ]
     },
     {

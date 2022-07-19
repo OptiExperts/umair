@@ -6,15 +6,7 @@
 {% endif %}
 
 <script>
-  $(document).on("click", ".list-tabs .tab-links", function(){
-    $(".wrapper-tab-content .tab-title").removeClass('active');
-    $(".list-tabs .title").removeClass('border');
-    $(".wrapper-tab-content .tab-title").addClass('hide');
-    var data_target = $(this).attr('data-target');
-    $(this).find('.title').addClass('border');
-    $(".wrapper-tab-content").find(data_target).addClass('active');
-    $(".wrapper-tab-content").find(data_target).removeClass('hide');
-  });
+
 </script>
 
 <style type="text/css">

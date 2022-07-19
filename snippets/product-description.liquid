@@ -1,6 +1,6 @@
 {% if product.description != blank %}
    <div class="product__description rte {{ class }}" itemprop="description" {{ block.shopify_attributes }}>
-    {{ product.description }}
+    
      
   </div>
 <div class="zzz">
@@ -30,7 +30,7 @@
 		</ul>
 		<div class="wrapper-tab-content">
 			<div class="tab-title description active" id="description">
-				Description
+				{{ product.description }}
 			</div>
 			<div class="tab-title shipping hide" id="shipping">
 				Shipping

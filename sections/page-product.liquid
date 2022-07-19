@@ -38,7 +38,7 @@
       %}
     </div>
   {% endif %}
-  {% if product.description != blank %}
+
   <ul class="list-tabs">
 			<li class="tab-title">
 				<span data-taptop="" data-target="#description" class="tab-links">
@@ -65,7 +65,9 @@
 		</ul>
 		<div class="wrapper-tab-content">
 			<div class="tab-title description active" id="description">
+                {% if product.description != blank %}
 				{{ product.description }}
+              {% endif %}
 			</div>
 			<div class="tab-title shipping hide" id="shipping">
 				Shipping
@@ -74,7 +76,7 @@
 				Return
 			</div>
 		</div>
-  {% endif %}
+  
 </div>
 
 {% schema %}

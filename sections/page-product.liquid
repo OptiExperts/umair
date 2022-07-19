@@ -38,6 +38,7 @@
       %}
     </div>
   {% endif %}
+  {% if product.description != blank %}
   <ul class="list-tabs">
 			<li class="tab-title">
 				<span data-taptop="" data-target="#description" class="tab-links">
@@ -57,7 +58,7 @@
 			<li class="tab-title">
 				<span data-taptop="" data-target="#policy" class="tab-links">
 					<span class="title">
-						Return
+						Return & Exchange
 					</span>
 				</span>
 			</li>
@@ -73,6 +74,7 @@
 				Return
 			</div>
 		</div>
+  {% endif %}
 </div>
 
 {% schema %}

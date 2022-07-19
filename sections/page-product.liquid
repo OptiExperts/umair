@@ -38,45 +38,45 @@
       %}
     </div>
   {% endif %}
-
+<div class="description-tab">
   <ul class="list-tabs">
-			<li class="tab-title">
-				<span data-taptop="" data-target="#description" class="tab-links">
-					<span class="title border">
-						Description
-					</span>
-				</span>
-			</li>
-			<li class="tab-title">
-				<span data-taptop="" data-target="#shipping" class="tab-links">
-					
-					<span class="title">
-						Shipping & Handling
-					</span>
-				</span>
-			</li>
-			<li class="tab-title">
-				<span data-taptop="" data-target="#policy" class="tab-links">
-					<span class="title">
-						Return & Exchange
-					</span>
-				</span>
-			</li>
-		</ul>
-		<div class="wrapper-tab-content">
-			<div class="tab-title description active" id="description">
-                {% if product.description != blank %}
-				{{ product.description }}
-              {% endif %}
-			</div>
-			<div class="tab-title shipping hide" id="shipping">
-				Shipping
-			</div>
-			<div class="tab-title return hide" id="policy">
-				Return
-			</div>
-		</div>
-  
+    <li class="tab-title">
+      <span data-taptop="" data-target="#description" class="tab-links">
+        <span class="title border">
+          Description
+        </span>
+      </span>
+    </li>
+    <li class="tab-title">
+      <span data-taptop="" data-target="#shipping" class="tab-links">
+
+        <span class="title">
+          Shipping & Handling
+        </span>
+      </span>
+    </li>
+    <li class="tab-title">
+      <span data-taptop="" data-target="#policy" class="tab-links">
+        <span class="title">
+          Return & Exchange
+        </span>
+      </span>
+    </li>
+  </ul>
+  <div class="wrapper-tab-content">
+    <div class="tab-title description active" id="description">
+      {% if product.description != blank %}
+      {{ product.description }}
+      {% endif %}
+    </div>
+    <div class="tab-title shipping hide" id="shipping">
+      Shipping
+    </div>
+    <div class="tab-title return hide" id="policy">
+      Return
+    </div>
+  </div>
+</div>
   
 </div>
 

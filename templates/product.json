@@ -31,7 +31,7 @@
         "description": {
           "type": "description",
           "settings": {
-            "position": "bottom"
+            "position": "left"
           }
         },
         "price": {

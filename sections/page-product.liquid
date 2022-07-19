@@ -48,7 +48,7 @@
       </span>
     </li>
     <li class="tab-title">
-      <span data-taptop="" data-target="#shipping" class="tab-links">
+      <span data-taptop="" data-target="#features" class="tab-links">
 
         <span class="title">
           Shipping & Handling
@@ -69,7 +69,7 @@
       {{ product.description }}
       {% endif %}
     </div>
-    <div class="tab-title shipping hide" id="shipping">
+    <div class="tab-title shipping hide" id="features">
       Shipping
     </div>
     <div class="tab-title return hide" id="policy">
@@ -493,7 +493,15 @@
             }
           ],
           "default": "top"
-        }
+        },
+
+		{
+		
+			 "type" : "textarea",
+                "id" : "features",
+                "label" : "Text Tab 2"
+		}
+		
       ]
     },
     {

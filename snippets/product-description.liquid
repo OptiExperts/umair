@@ -1,44 +1,101 @@
-{% unless form_id %}
-{% assign form_id = product.id %}
-{% endunless %}
+{% if product.description != blank %}
+   <div class="product__description rte {{ class }}" itemprop="description" {{ block.shopify_attributes }}>
+    
+     
+  </div>
 
-{% assign variant = product.selected_or_first_available_variant %}
-{% assign show_dynamic_checkout_button = settings.show_payment_button %}
-{% if product.selling_plan_groups.size > 0 %}
-{% assign show_dynamic_checkout_button = false %}
+<ul class="list-tabs">
+			<li class="tab-title">
+				<span data-taptop="" data-target="#description" class="tab-links">
+					<span class="title">
+						Description
+					</span>
+				</span>
+			</li>
+			<li class="tab-title">
+				<span data-taptop="" data-target="#shipping" class="tab-links">
+					
+					<span class="title">
+						Handling
+					</span>
+				</span>
+			</li>
+			<li class="tab-title">
+				<span data-taptop="" data-target="#policy" class="tab-links">
+					<span class="title">
+						Return
+					</span>
+				</span>
+			</li>
+		</ul>
+		<div class="wrapper-tab-content">
+			<div class="tab-title description active" id="description">
+				{{ product.description }}
+			</div>
+			<div class="tab-title shipping hide" id="shipping">
+				Shipping
+			</div>
+			<div class="tab-title return hide" id="policy">
+				Return
+			</div>
+		</div>
+
+
+
 {% endif %}
 
-<div class="
-    product-form
-    {% if show_dynamic_checkout_button %}
-      smart-payment-buttons
-    {% endif %}
-  " data-product-form="{{ form_id }}">
+<script>
+		$(document).on("click", ".list-tabs .tab-links", function(){
+    $(".wrapper-tab-content .tab-title").removeClass('active');
+    $(".wrapper-tab-content .tab-title").addClass('hide');
+    var data_target = $(this).attr('data-target');
+    $(".wrapper-tab-content").find(data_target).addClass('active');
+    $(".wrapper-tab-content").find(data_target).removeClass('hide');
+});
+	</script>
 
-  <meta itemprop="name" content="{{ product.title }}">
-  <meta itemprop="brand" content="{{ product.vendor }}">
-  <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
-  <meta itemprop="image" content="{{ product.featured_media.preview_image | img_url: 'grande' }}">
-
-  <div id="infiniteoptions-container"></div>
-  <div id="uploadery-container"></div>
-
-  <div class="product-submit" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-    <span class="payment-buttons-container">
-      {% if variant.available %}
-      <input class="add-to-cart" type="submit" value="{{ 'products.product.add_to_cart' | t }}" />
-      <link itemprop="availability" href="http://schema.org/InStock">
-
-      {% if show_dynamic_checkout_button %}
-      {{ form | payment_button }}
-      {% endif %}
-      {% else %}
-      <input type="button" class="add-to-cart disabled" disabled="disabled"
-        value="{{ 'products.product.sold_out' | t }}" />
-      <link itemprop="availability" href="http://schema.org/OutOfStock">
-      {% endif %}
-    </span>
-  </div>
-  <div class="product-message"></div>
-  <div class="surface-pick-up" data-surface-pick-up></div>
-</div>
+<style type="text/css">
+			ul.list-tabs{
+				display: flex;
+		justify-content: center;
+		list-style-type: none;
+		margin-bottom: 30px;
+		flex-wrap: wrap;
+		margin-right: 65px;
+			}
+			li.tab-title:marker{
+				font-size: 0px;
+			}
+			span.tab-links{
+				text-decoration: none;
+				padding-left: 0;
+		padding-right: 0;
+		padding: 16px 0 14px;
+		cursor: pointer;
+			}
+			li.tab-title span.tab-links span{
+				color: black;
+				font-size: 20px;
+				font-family: system-ui;
+				text-transform: uppercase;
+				font-weight: 600;
+			
+			}
+			li.tab-title:not(:last-child){
+				margin-right: 65px;
+			}
+			li.tab-title{
+				
+				margin: 0 30px 0 0;
+				letter-spacing: .2px;
+			}
+			.hide{
+				display: none;
+			}
+			.active{
+				display: block;
+			}
+  .border{
+    border-bottom: 2px solid black;
+  }
+		</style>

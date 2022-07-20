@@ -65,15 +65,15 @@
   </ul>
   <div class="wrapper-tab-content">
     <div class="tab-title description active" id="description">
-      {% if product.description != blank %}
-      {{ product.description }}
-      {% endif %}
+      { % if product.description != blank %}
+      { { product.description }}
+      { % endif %}
     </div>
     <div class="tab-title shipping hide" id="features">
-      	{{section.settings.features}}
+      	{ {section.settings.features}}
     </div>
     <div class="tab-title return hide" id="policy">
-      	{{section.settings.sizes}}
+      	{ {section.settings.sizes}}
     </div>
   </div>
 </div> -->

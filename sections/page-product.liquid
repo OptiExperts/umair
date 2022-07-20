@@ -86,14 +86,13 @@
   <input class="radio" id="three" name="group" type="radio">
 
   <div class="tabs">
-    <label class="tab" id="one-tab" for="one">Tab1</label>
+    <label class="tab" id="one-tab" for="one">Description</label>
     <label class="tab" id="two-tab" for="two">Tab2</label>
     <label class="tab" id="three-tab" for="three">Tab3</label>
   </div>
 
   <div class="panels">
     <div class="panel" id="one-panel">
-      <div class="panel-title">Description</div>
       {% if product.description != blank %}
       {{ product.description }}
       {% endif %}

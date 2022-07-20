@@ -2,10 +2,11 @@
   //tabs
 $(document).on('click', '.tabs-container li', function(){
     $('.tabs-container li').removeClass('active');
-    $('.tabs-container ul').addClass('expanded');
-    $(this).addClass('active');
+    $('.tabs-container ul').Class('expanded');
+    
     var tab_id = $(this).attr('data-tab');
     $('.tab-content').removeClass('current');
     $(this).addClass('current');
+    $('#'+tab_id).addClass('current');
 });
   

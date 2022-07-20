@@ -86,8 +86,8 @@
 
   <div class="tabs">
     <label class="tab" id="one-tab" for="one">Description</label>
-    <label class="tab" id="two-tab" for="two">Shipping</label>
-    <label class="tab" id="three-tab" for="three">Exchange</label>
+    <label class="tab" id="two-tab" for="two">Features</label>
+    <label class="tab" id="three-tab" for="three">Sizes</label>
   </div>
 
   <div class="panels">
@@ -97,12 +97,12 @@
       {% endif %}
     </div>
     <div class="panel" id="two-panel">
-      <div class="panel-title">Title2</div>
-      <p>Content2</p>
+     
+      { {section.settings.features}}
     </div>
     <div class="panel" id="three-panel">
-      <div class="panel-title">Title3</div>
-      <p>Content3</p>
+     
+      { {section.settings.sizes}}
     </div>
   </div>
 </div>

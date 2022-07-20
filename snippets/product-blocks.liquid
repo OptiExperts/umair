@@ -119,7 +119,7 @@
               form: form,
             %}
           {% endunless %}
-        {% when 'description' %}
+<!--         {% when 'description' %}
           {% assign next_block_type = section.blocks[forloop.index].type %}
           {% assign class = first_block_class %}
           {% unless next_block_type == 'callout' %}
@@ -131,7 +131,7 @@
             block: block,
             section: section,
             class: class,
-          %}
+          %} -->
         {% when 'callout' %}
           {% unless onboarding %}
             <div class="product__callout {{ border_class }}">

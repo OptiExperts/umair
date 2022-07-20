@@ -24,7 +24,7 @@
   <div id="uploadery-container"></div>
 
   <div class="product-submit" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-    <span class="payment-buttons-container ssss">
+    <span class="payment-buttons-container">
       {% if variant.available %}
       <input class="add-to-cart" type="submit" value="{{ 'products.product.add_to_cart' | t }}" />
       <link itemprop="availability" href="http://schema.org/InStock">
@@ -37,6 +37,7 @@
         value="{{ 'products.product.sold_out' | t }}" />
       <link itemprop="availability" href="http://schema.org/OutOfStock">
       {% endif %}
+      <a class="btn klaviyo-bis-trigger" href="#" style="text-align: center; margin: 0px; width: auto;">Notify Me When Available</a>
     </span>
   </div>
   

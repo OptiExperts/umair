@@ -2,8 +2,8 @@
   //tabs
 $(document).on('click', '.tabs-container li', function(){
     $('.tabs-container li').removeClass('active');
-    $('.tabs-container ul').Class('expanded');
-    
+    $('.tabs-container ul').toggleClass('expanded');
+    $(this).addClass('active');
     var tab_id = $(this).attr('data-tab');
     $('.tab-content').removeClass('current');
     $(this).addClass('current');

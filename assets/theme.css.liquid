@@ -14344,19 +14344,19 @@ right: 15%;
 		
 		;
           
-          .tabs-container nav {
+          .tabs-container .tabs {
     margin: 0 auto;
     background: #fff;
     border-bottom: 1px solid #f4f4f4;
   }
-  .tabs-container nav ul {
+  .tabs-container .tabs ul {
     list-style: none;
     margin: 0;
     padding: 0;
     border: 1px solid #ccc;
     padding: 0 10px;
   }
-  .tabs-container nav ul li {
+  .tabs-container .tabs ul li {
     padding: .5rem;
     background-color: white;
     cursor: pointer;
@@ -14365,7 +14365,7 @@ right: 15%;
     margin-right: -10px;
     padding-left: 25px;
   }
-  .tabs-container nav ul li.active {
+  .tabs-container .tabs ul li.active {
     border-top: none;
   }
   /* the nitty gritty */
@@ -14374,15 +14374,15 @@ right: 15%;
     height: 4em;
     margin-top: 30px;
   }
-  .tabs-container nav {
+  .tabs-container .tabs {
     position: absolute;
     width: 100%;
   }
-  .tabs-container nav ul {
+  .tabs-container .tabs ul {
     display: flex;
     flex-direction: column;
   }
-  .tabs-container nav ul li {
+  .tabs-container .tabs ul li {
     order: 1;
     font-size: 17px;
     font-weight: 600;
@@ -14394,12 +14394,12 @@ right: 15%;
 -o-transition: all 0.3s ease;
 -ms-transition: all 0.3s ease; */
   }
-  .tabs-container nav ul li.active {
+  .tabs-container .tabs ul li.active {
     order: 0;
     font-size: 15px;
     letter-spacing: .15em;
   }
-  .tabs-container nav ul li.active:after {
+  .tabs-container .tabs ul li.active:after {
     width: 1px;
     height: 1px;
     border: 5px solid transparent;
@@ -14410,52 +14410,18 @@ right: 15%;
     top: 1.4em;
     z-index: 9999;
   }
-  .tabs-container nav ul li:not(.active) {
+  .tabs-container .tabs ul li:not(.active) {
     position: absolute;
     top: -999em;
   }
-  .tabs-container nav ul.expanded li.active:after {
+  .tabs-container tabs ul.expanded li.active:after {
     border-top-color: transparent;
     border-bottom-color: #555;
     top: 1em;
   }
-  .tabs-container nav ul.expanded li:not(.active) {
+  .tabs-container .tabs ul.expanded li:not(.active) {
     position: relative;
     top: auto;
-  }
-  @media (min-width: 42em) {
-    nav {
-      background: transparent;
-    }
-    .tabs-container nav ul li.active {
-        border-bottom: 2px solid #000000;
-        padding-bottom: 20px;
-    }
-    .tabs-container nav ul {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      white-space: nowrap;
-      overflow: hidden;
-      border: none;
-      padding: 0;
-    }
-    .tabs-container nav ul li {
-      display: inline-block;
-      margin: 0 1rem 0 1rem;
-      padding: 0 0 0.2rem 0;
-      border: none;
-    }
-    .tabs-container nav ul li:not(.active) {
-      position: relative;
-      top: auto;
-    }
-    .tabs-container nav ul li.active {
-      order: 1;
-    }
-    .tabs-container nav ul li.active:after {
-      display: none;
-    }
   }
   .tab-content {
     display: none;

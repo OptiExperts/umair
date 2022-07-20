@@ -14343,125 +14343,106 @@ right: 15%;
 		}
 		
 		;
+
           
-          .tabs-container nav {
-    margin: 0 auto;
-    background: #fff;
-    border-bottom: 1px solid #f4f4f4;
-  }
-  .tabs-container nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    border: 1px solid #ccc;
-    padding: 0 10px;
-  }
-  .tabs-container nav ul li {
-    padding: .5rem;
-    background-color: white;
-    cursor: pointer;
-    border-top: 1px solid #eee;
-    margin-left: -10px;
-    margin-right: -10px;
-    padding-left: 25px;
-  }
-  .tabs-container nav ul li.active {
-    border-top: none;
-  }
-  /* the nitty gritty */
-  .tabs-container {
-    position: relative;
-    height: 4em;
-    margin-top: 30px;
-  }
-  .tabs-container nav {
-    position: absolute;
-    width: 100%;
-  }
-  .tabs-container nav ul {
-    display: flex;
-    flex-direction: column;
-  }
-  .tabs-container nav ul li {
-    order: 1;
-    font-size: 17px;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-family: sans-serif;
-    letter-spacing: .15em;
-/*     -webkit-transition: all 0.3s ease;
--moz-transition: all 0.3s ease;
--o-transition: all 0.3s ease;
--ms-transition: all 0.3s ease; */
-  }
-  .tabs-container nav ul li.active {
-    order: 0;
-    font-size: 15px;
-    letter-spacing: .15em;
-  }
-  .tabs-container nav ul li.active:after {
-    width: 1px;
-    height: 1px;
-    border: 5px solid transparent;
-    border-top: 5px solid #555;
-    content: '';
-    position: absolute;
-    right: 1.5em;
-    top: 1.4em;
-    z-index: 9999;
-  }
-  .tabs-container nav ul li:not(.active) {
-    position: absolute;
-    top: -999em;
-  }
-  .tabs-container nav ul.expanded li.active:after {
-    border-top-color: transparent;
-    border-bottom-color: #555;
-    top: 1em;
-  }
-  .tabs-container nav ul.expanded li:not(.active) {
-    position: relative;
-    top: auto;
-  }
-  @media (min-width: 42em) {
-    nav {
-      background: transparent;
-    }
-    .tabs-container nav ul li.active {
-        border-bottom: 2px solid #000000;
-        padding-bottom: 20px;
-    }
-    .tabs-container nav ul {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      white-space: nowrap;
-      overflow: hidden;
-      border: none;
-      padding: 0;
-    }
-    .tabs-container nav ul li {
-      display: inline-block;
-      margin: 0 1rem 0 1rem;
-      padding: 0 0 0.2rem 0;
-      border: none;
-    }
-    .tabs-container nav ul li:not(.active) {
-      position: relative;
-      top: auto;
-    }
-    .tabs-container nav ul li.active {
-      order: 1;
-    }
-    .tabs-container nav ul li.active:after {
-      display: none;
-    }
-  }
-  .tab-content {
-    display: none;
-    padding: 15px;
-  }
-  .tab-content.current {
-    display: inherit;
-  }
-  
+          /* Component Needs */
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700);
+@import url(https://fonts.googleapis.com/css?family=Raleway:100,400,700);
+.pc-tab > input, .pc-tab section > div {
+  display: none;
+}
+#tab1:checked ~ section .tab1, #tab2:checked ~ section .tab2, #tab3:checked ~ section .tab3 {
+  display: block;
+}
+#tab1:checked ~ nav .tab1, #tab2:checked ~ nav .tab2, #tab3:checked ~ nav .tab3 {
+  color: red;
+}
+/* Visual Styles */
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  background: #ecf0f1;
+  font-family: 'Raleway';
+}
+h1 {
+  text-align: center;
+  font-weight: 100;
+  font-size: 60px;
+  color: #e74c3c;
+}
+.pc-tab {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.pc-tab ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.pc-tab ul li label {
+  font-family: "Raleway";
+  float: left;
+  padding: 15px 25px;
+  border: 1px solid #ddd;
+  border-bottom: 0;
+  background: #eeeeee;
+  color: #444;
+}
+.pc-tab ul li label:hover {
+  background: #dddddd;
+}
+.pc-tab ul li label:active {
+  background: #ffffff;
+}
+.pc-tab ul li:not(:last-child) label {
+  border-right-width: 0;
+}
+.pc-tab section {
+  font-family: "Droid Serif";
+  clear: both;
+}
+.pc-tab section div {
+  padding: 20px;
+  width: 100%;
+  border: 1px solid #ddd;
+  background: #fff;
+  line-height: 1.5em;
+  letter-spacing: 0.3px;
+  color: #444;
+}
+.pc-tab section div h2 {
+  margin: 0;
+  font-family: "Raleway";
+  letter-spacing: 1px;
+  color: #34495e;
+}
+#tab1:checked ~ nav .tab1 label, #tab2:checked ~ nav .tab2 label, #tab3:checked ~ nav .tab3 label {
+  background: white;
+  color: #111;
+  position: relative;
+}
+#tab1:checked ~ nav .tab1 label:after, #tab2:checked ~ nav .tab2 label:after, #tab3:checked ~ nav .tab3 label:after {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: #ffffff;
+  left: 0;
+  bottom: -1px;
+}
+footer {
+  margin-top: 50px;
+  font-size: 14px;
+  color: #CCC;
+  text-align: center;
+}
+footer a {
+  color: #AAA;
+  text-decoration: none;
+}
